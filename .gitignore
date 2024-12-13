@@ -52,6 +52,5 @@ Mkfile.old
 dkms.conf
 
 # STM32CubeIDE
-.metadata/
-.settings/
+CubeMX/.metadata/
 *.ld
