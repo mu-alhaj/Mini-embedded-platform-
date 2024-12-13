@@ -125,3 +125,18 @@ java.lang.IllegalStateException: Call stack for thread main
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-12-13 13:36:11.450
 !MESSAGE Indexed 'Blinky' (32 sources, 158 headers) in 3,41 sec: 14 845 declarations; 76 087 references; 6 unresolved inclusions; 71 syntax errors; 1 355 unresolved names (1,5 %)
+!SESSION 2024-12-13 13:38:08.694 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-12-13 13:38:12.262
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-12-13 13:38:12.263
+!MESSAGE Log4j2 initialized with config file C:\Users\wxj509\Data\MicroRepo\CubeMX\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-12-13 13:38:16.245
+!MESSAGE Started RMI Server, listening on port 41337
