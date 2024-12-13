@@ -1,0 +1,1740 @@
+10:53:20 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dac.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dac.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dac.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dac.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dac_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dac_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dac_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dac_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart.o"
+arm-none-eabi-gcc "../Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.d" -MT"Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_uart_ex.o"
+arm-none-eabi-gcc "../Core/Src/dac.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dac.d" -MT"Core/Src/dac.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dac.o"
+arm-none-eabi-gcc "../Core/Src/dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dma.d" -MT"Core/Src/dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dma.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/scheduler.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/scheduler.d" -MT"Core/Src/scheduler.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/scheduler.o"
+arm-none-eabi-gcc "../Core/Src/stm32f3xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f3xx_hal_msp.d" -MT"Core/Src/stm32f3xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f3xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f3xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f3xx_it.d" -MT"Core/Src/stm32f3xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f3xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f3xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32f3xx.d" -MT"Core/Src/system_stm32f3xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f3xx.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/usart.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:98:38: error: 'i' undeclared (first use in this function); did you mean 'ix'?
+   98 |         uint32_t value = sine_values[i++];
+      |                                      ^
+      |                                      ix
+../Core/Src/main.c:98:38: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:100:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  100 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:100:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:104:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  104 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:97:20: warning: unused variable 'ix' [-Wunused-variable]
+   97 |         static int ix = 0;
+      |                    ^~
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+10:53:40 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:100:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  100 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:100:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:104:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  104 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  24796	     92	   2372	  27260	   6a7c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+10:54:09 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:99:9: error: unknown type name 'uint8'; did you mean 'uint8_t'?
+   99 |         uint8 out[14];
+      |         ^~~~~
+      |         uint8_t
+../Core/Src/main.c:100:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  100 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:100:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:100:9: warning: 'memset' used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+../Core/Src/main.c:101:28: warning: passing argument 2 of 'u32toString' from incompatible pointer type [-Wincompatible-pointer-types]
+  101 |         u32toString(value, out);
+      |                            ^~~
+      |                            |
+      |                            int *
+../Core/Src/main.c:78:38: note: expected 'char *' but argument is of type 'int *'
+   78 | void u32toString( uint32_t in, char* out )
+      |                                ~~~~~~^~~
+../Core/Src/main.c:104:36: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  104 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    int *
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+10:54:17 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:100:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  100 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:100:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:101:28: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+  101 |         u32toString(value, out);
+      |                            ^~~
+      |                            |
+      |                            uint8_t * {aka unsigned char *}
+../Core/Src/main.c:78:38: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   78 | void u32toString( uint32_t in, char* out )
+      |                                ~~~~~~^~~
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  24796	     92	   2372	  27260	   6a7c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+10:54:41 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:78:6: error: conflicting types for 'u32toString'; have 'void(uint32_t,  uint8_t *)' {aka 'void(long unsigned int,  unsigned char *)'}
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:65:6: note: previous declaration of 'u32toString' with type 'void(uint32_t,  char *)' {aka 'void(long unsigned int,  char *)'}
+   65 | void u32toString( uint32_t in, char* out );
+      |      ^~~~~~~~~~~
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:100:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  100 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:100:9: note: include '<string.h>' or provide a declaration of 'memset'
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+10:55:19 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:100:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  100 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:100:9: note: include '<string.h>' or provide a declaration of 'memset'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  24796	     92	   2372	  27260	   6a7c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+10:56:32 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24796	     92	   2372	  27260	   6a7c	Blinky.elf
+Finished building: default.size.stdout
+ 
+10:56:37 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24796	     92	   2372	  27260	   6a7c	Blinky.elf
+Finished building: default.size.stdout
+ 
+10:58:36 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:104:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+  104 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:104:9: note: include '<string.h>' or provide a declaration of 'memset'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  24820	     92	   2372	  27284	   6a94	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+10:58:39 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24820	     92	   2372	  27284	   6a94	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:05:13 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:104:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  104 |         memcpy( out, &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:104:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:104:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:104:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22156	     12	   2036	  24204	   5e8c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+11:05:23 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22156	     12	   2036	  24204	   5e8c	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:13:27 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:104:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  104 |         memcpy( out, &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:104:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:104:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:104:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22148	     12	   2036	  24196	   5e84	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+11:13:30 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22148	     12	   2036	  24196	   5e84	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:13:50 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22148	     12	   2036	  24196	   5e84	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:13:53 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22148	     12	   2036	  24196	   5e84	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:22:06 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22164	     12	   2036	  24212	   5e94	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+11:22:10 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22164	     12	   2036	  24212	   5e94	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:38:38 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22164	     12	   5996	  28172	   6e0c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+11:38:45 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22164	     12	   5996	  28172	   6e0c	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:40:04 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22164	     12	   5996	  28172	   6e0c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+11:40:07 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22164	     12	   5996	  28172	   6e0c	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:42:13 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22164	     12	   3596	  25772	   64ac	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+11:42:16 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22164	     12	   3596	  25772	   64ac	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:57:51 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  15344	     12	   3468	  18824	   4988	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+11:58:10 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15344	     12	   3468	  18824	   4988	Blinky.elf
+Finished building: default.size.stdout
+ 
+11:59:06 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  15340	     12	   1908	  17260	   436c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+11:59:11 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15340	     12	   1908	  17260	   436c	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:00:43 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:00:49 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:04:36 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:04:48 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:05:56 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:05:59 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:08:14 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:08:18 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:09:45 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:09:50 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   1908	  24492	   5fac	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:10:34 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   2268	  24852	   6114	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:10:40 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   2268	  24852	   6114	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:11:31 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   5868	  28460	   6f2c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:11:52 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   5868	  28460	   6f2c	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:12:58 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   3068	  25660	   643c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:13:01 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   3068	  25660	   643c	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:13:14 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   3068	  25660	   643c	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:17:37 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   2268	  24852	   6114	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:17:44 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   2268	  24852	   6114	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:19:47 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   2268	  24852	   6114	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:20:47 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22572	     12	   2268	  24852	   6114	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:25:18 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+../Core/Src/main.c: In function 'u32toString':
+../Core/Src/main.c:80:18: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   80 |         sprintf( out, "%u", in );
+      |                  ^~~
+      |                  |
+      |                  uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:30:
+C:\ST\STM32CubeIDE_1.17.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
+      |                  ^
+../Core/Src/main.c:80:25: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   80 |         sprintf( out, "%u", in );
+      |                        ~^   ~~
+      |                         |   |
+      |                         |   uint32_t {aka long unsigned int}
+      |                         unsigned int
+      |                        %lu
+../Core/Src/main.c: In function 'streamSysTick':
+../Core/Src/main.c:87:9: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:33:1: note: include '<string.h>' or provide a declaration of 'memset'
+   32 | #include <math.h>
+  +++ |+#include <string.h>
+   33 | /* USER CODE END Includes */
+../Core/Src/main.c:87:9: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+   87 |         memset( out, '\0', 14 );
+      |         ^~~~~~
+../Core/Src/main.c:87:9: note: include '<string.h>' or provide a declaration of 'memset'
+../Core/Src/main.c:88:26: warning: pointer targets in passing argument 2 of 'u32toString' differ in signedness [-Wpointer-sign]
+   88 |         u32toString(now, out);
+      |                          ^~~
+      |                          |
+      |                          char *
+../Core/Src/main.c:78:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   78 | void u32toString( uint32_t in, uint8_t* out )
+      |                                ~~~~~~~~~^~~
+../Core/Src/main.c:91:36: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+   91 |         HAL_UART_Transmit(&huart2, out, 14, 10);
+      |                                    ^~~
+      |                                    |
+      |                                    char *
+In file included from ../Core/Inc/stm32f3xx_hal_conf.h:328,
+                 from ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1486:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1486 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'streamSineValues':
+../Core/Src/main.c:105:9: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+  105 |         memcpy( &out[1], &value, 4 );
+      |         ^~~~~~
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Core/Src/main.c:105:9: warning: incompatible implicit declaration of built-in function 'memcpy' [-Wbuiltin-declaration-mismatch]
+../Core/Src/main.c:105:9: note: include '<string.h>' or provide a declaration of 'memcpy'
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   5868	  28460	   6f2c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:25:26 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   5868	  28460	   6f2c	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:33:57 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   5868	  28460	   6f2c	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:34:11 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   5868	  28460	   6f2c	Blinky.elf
+Finished building: default.size.stdout
+ 
+12:35:23 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xE -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc -o "Blinky.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\wxj509\Data\CubeMX\Blinky\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Blinky.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Blinky.elf
+ 
+arm-none-eabi-size  Blinky.elf 
+arm-none-eabi-objdump -h -S Blinky.elf  > "Blinky.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   5868	  28460	   6f2c	Blinky.elf
+Finished building: default.size.stdout
+ 
+Finished building: Blinky.list
+ 
+12:35:28 **** Incremental Build of configuration Debug for project Blinky ****
+make -j16 all 
+arm-none-eabi-size  Blinky.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22580	     12	   5868	  28460	   6f2c	Blinky.elf
+Finished building: default.size.stdout
+ 

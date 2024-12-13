@@ -1,0 +1,44 @@
+/*
+ * scheduler.c
+ *
+ *  Created on: Dec 12, 2024
+ *      Author: wxj509
+ */
+#include "scheduler.h"
+
+struct schedulerTask
+{
+	void (*pTask)();
+	uint32_t delay;
+};
+
+typedef struct schedulerTask tSchedulerTask;
+
+tSchedulerTask taskList[SCHEDULER_MAX_NR_TASKS];
+
+
+void scheduler_init( void )
+{
+
+	for ( uint8_t i = 0; i < SCHEDULER_MAX_NR_TASKS; i += 1 )
+	{
+		taskList[i].pTask = NULL;
+		taskList[i].delay = 0;
+	}
+}
+
+uint8_t scheduler_addTask( uint32_t delay, void (*pTask)(void) )
+{
+	for ( uint8_t i = 0; i < SCHEDULER_MAX_NR_TASKS; i += 1 )
+	{
+		// search for available task.
+		if ( taskList[i].pTask == NULL )
+		{
+			taskList[i].pTask = pTask;
+			taskList[i].delay = delay;
+			return true;
+		}
+	}
+	// no available task was found
+	return false;
+}

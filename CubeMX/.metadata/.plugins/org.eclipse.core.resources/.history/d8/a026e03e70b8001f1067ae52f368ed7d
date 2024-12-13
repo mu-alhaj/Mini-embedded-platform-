@@ -1,0 +1,14 @@
+/*
+ * scheduler.c
+ *
+ *  Created on: Dec 12, 2024
+ *      Author: wxj509
+ */
+#include "scheduler.h"
+
+
+uint8_t scheduler_addTask( uint32_t delay, void (*pTask)(void) );
+{
+
+
+}
