@@ -30,7 +30,7 @@ def update(frame):
             data = int.from_bytes( bytes, byteorder='little' )
     
     if data != None:
-        print(data)
+        #print(data)
         try:
             ydata.append(int(data))
             xdata.append(len(ydata))

@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "scheduler.h"
+#include "uartStream.h";
 #include <stdio.h>
 #include <stdint.h>
 #include <math.h>
@@ -54,6 +55,7 @@
 
 /* USER CODE BEGIN PV */
 uint32_t sine_values[MAX_SAMPLES];
+uint32_t arr[1000];
 
 /* USER CODE END PV */
 
@@ -62,9 +64,6 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 
 void toggleLed();
-void u32toString( uint32_t in, uint8_t* out );
-void streamSysTick();
-void streamSineValues();
 void getSineValues();
 /* USER CODE END PFP */
 
@@ -75,44 +74,21 @@ void toggleLed()
 	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 }
 
-void u32toString( uint32_t in, uint8_t* out )
-{
-	sprintf( out, "%u", in );
-}
-
-void streamSysTick()
-{
-	uint32_t now = HAL_GetTick();
-	char out[14];
-	memset( out, '\0', 14 );
-	u32toString(now, out);
-	out[12] = '\r';
-	out[13] = '\n';
-	HAL_UART_Transmit(&huart2, out, 14, 10);
-}
-
-
-void streamSineValues()
-{
-	static int i = 0;
-	uint32_t value = sine_values[i];
-	if ( i < MAX_SAMPLES )
-		i ++;
-	else
-		i = 0;
-	uint8_t out[6];
-	out[0] = 's'; // start indicator
-	memcpy( &out[1], &value, 4 );
-	out[5] = 'e'; // end indicator
-	HAL_UART_Transmit(&huart2, out, 6, 10);
-}
-
 void getSineValues()
 {
 	for ( int i = 0; i < MAX_SAMPLES; i += 1 )
 	{
 		sine_values[i] = ( ( sin( i * 2 * PI / MAX_SAMPLES ) +1  ) ) * RES_12B / 2;
 	}
+}
+
+void arrUp()
+{
+	static i = 0;
+	uartStream_sendU32( arr[i] );
+	if ( i < 1000 )
+		i ++;
+	else i = 0;
 }
 /* USER CODE END 0 */
 
@@ -154,13 +130,18 @@ int main(void)
   HAL_TIM_Base_Start( &htim7 );
   HAL_DAC_Start_DMA( &hdac1, DAC1_CHANNEL_1, sine_values, MAX_SAMPLES, DAC_ALIGN_12B_R);
 
-//  scheduler_init();
-//  scheduler_addTask( 100, toggleLed );
-//  scheduler_addTask( 100, streamSysTick );
-//  getSineValues();
-//  scheduler_addTask( 5, streamSineValues );
-//
-//  scheduler_run();
+
+  for ( int i = 0; i < 1000; i ++ )
+	  arr[i] = i;
+
+
+
+  scheduler_init();
+
+  // add tasks to scheduler:
+  scheduler_addTask(1, arrUp);
+
+  scheduler_run();
   /* USER CODE END 2 */
 
   /* Infinite loop */
