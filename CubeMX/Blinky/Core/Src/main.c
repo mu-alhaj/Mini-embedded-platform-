@@ -41,7 +41,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define PI 				3.14155926
-#define MAX_SAMPLES 	1000	// to be executed within 5 seconds from top to top.
+#define MAX_SAMPLES 	10000	// to be executed within 5 seconds from top to top.
 #define RES_8B			256
 #define RES_12B			4096
 /* USER CODE END PD */
@@ -85,8 +85,8 @@ void getSineValues()
 void arrUp()
 {
 	static i = 0;
-	uartStream_sendU32( arr[i] );
-	if ( i < 1000 )
+	uartStream_sendU32( sine_values[i] );
+	if ( i < MAX_SAMPLES )
 		i ++;
 	else i = 0;
 }
@@ -139,7 +139,7 @@ int main(void)
   scheduler_init();
 
   // add tasks to scheduler:
-  scheduler_addTask(1, arrUp);
+  scheduler_addTask(10, arrUp);
 
   scheduler_run();
   /* USER CODE END 2 */
