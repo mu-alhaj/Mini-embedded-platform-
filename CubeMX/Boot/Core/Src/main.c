@@ -25,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <string.h>
+#include "circularBuffer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,7 +37,7 @@
 /* USER CODE BEGIN PD */
 
 #define RX_BUF_SIZE	64
-#define BUF_SIZE	64
+#define BUF_SIZE	10
 
 /* USER CODE END PD */
 
@@ -49,8 +50,9 @@
 
 /* USER CODE BEGIN PV */
 
-uint8_t rxBuf[RX_BUF_SIZE];
-uint8_t buf[BUF_SIZE];
+uint8_t uart_dma_rxBuf[RX_BUF_SIZE];
+uint8_t cData[BUF_SIZE];
+tCircularBuffer cbuffer;
 
 /* USER CODE END PV */
 
@@ -67,8 +69,11 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
 	if ( huart->Instance == USART2 )
 	{
-		memcpy(buf, rxBuf, Size);
-		HAL_UARTEx_ReceiveToIdle_DMA(&huart2, rxBuf, RX_BUF_SIZE);
+		// copy data to circular buffer;
+		circularBuffer_push( &cbuffer, uart_dma_rxBuf, Size );
+
+		// restart receiving data.
+		HAL_UARTEx_ReceiveToIdle_DMA(&huart2, uart_dma_rxBuf, RX_BUF_SIZE);
 	}
 }
 /* USER CODE END 0 */
@@ -106,8 +111,12 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UARTEx_ReceiveToIdle_DMA( &huart2, rxBuf, RX_BUF_SIZE );
+  circularBuffer_init( &cbuffer, cData , BUF_SIZE );
+
+  HAL_UARTEx_ReceiveToIdle_DMA( &huart2, uart_dma_rxBuf, RX_BUF_SIZE );
   __HAL_DMA_DISABLE_IT( huart2.hdmarx, DMA_IT_HT );	// not interested of half transfer interrupt.
+
+
 
   /* USER CODE END 2 */
 
@@ -115,11 +124,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (buf[0] - 48 == 0 )
-		  HAL_GPIO_WritePin( LD2_GPIO_Port, LD2_Pin, 0 );
-	  else if (buf[0] - 48 == 1 )
-		  HAL_GPIO_WritePin( LD2_GPIO_Port, LD2_Pin, 1 );
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

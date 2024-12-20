@@ -9,13 +9,16 @@
 #ifndef CIRCULARBUFFER_CIRCULARBUFFER_H_
 #define CIRCULARBUFFER_CIRCULARBUFFER_H_
 
+// Includes
+#include <stdint.h>
+
 // Public data types.
 struct
 {
-	uint16_t size;
-	uint16_t end;
-	uint16_t start;
-	uint8_t* p_buffer;
+	uint16_t size;			// maximum size of the pBuffer.
+	uint16_t end;			// index of last element +1 in buffer, always available to write.
+	uint16_t start;			// index of first element in buffer
+	uint8_t* pBuffer;
 }typedef tCircularBuffer;
 
 
@@ -24,11 +27,11 @@ struct
 /*
  * initiate a circular buffer.
  * in parameters:
- * - buffer
- * - size
+ * - data: pointer to data array to be handled by the buffer.
+ * - size: size of the data buffer.
  * return 0 if succeed, 1 otherwise.
  * */
-uint8_t circularBuffer_init( tCircularBuffer* buffer, uint8_t* buffer, uint16_t size );
+uint8_t circularBuffer_init( tCircularBuffer* pBuffer, uint8_t* pData, uint16_t size );
 
 /*
  * push data into the buffer.
@@ -37,7 +40,7 @@ uint8_t circularBuffer_init( tCircularBuffer* buffer, uint8_t* buffer, uint16_t 
  * - size : of the new data.
  * return 0 if succeed, 1 otherwise.
  * */
-uint8_t circularBuffer_push( tCircularBuffer* buffer, uint8_t* input, uint16_t size );
+uint8_t circularBuffer_push( tCircularBuffer* pBuffer, uint8_t* pInData, uint16_t size );
 
 /*
  * pop oldest data from the buffer.
@@ -46,7 +49,7 @@ uint8_t circularBuffer_push( tCircularBuffer* buffer, uint8_t* input, uint16_t s
  * - size: of the data that will be popped out
  * return 0 if succeed, 1 otherwise.
  * */
-uint8_t circularBuffer_pop( tCircularBuffer* buffer, uint8_t* out, uint16_t size );
+uint8_t circularBuffer_pop( tCircularBuffer* pBuffer, uint8_t* pOutData, uint16_t size );
 
 /*
  * Size of the data stored in the buffer
@@ -54,7 +57,7 @@ uint8_t circularBuffer_pop( tCircularBuffer* buffer, uint8_t* out, uint16_t size
  * - buffer: pointer to the circular buffer
  * return size of the data stored in the buffer.
  * */
-uint16_t circularBuffer_filledSize( tCircularBuffer* buffer );
+uint16_t circularBuffer_filledSize( tCircularBuffer* pBuffer );
 
 
 
