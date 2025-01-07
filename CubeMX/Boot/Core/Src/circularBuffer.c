@@ -100,7 +100,7 @@ uint8_t circularBuffer_push( tCircularBuffer* pCbuffer, uint8_t* pInData, uint16
  * Function
  * **********************************
  */
-uint8_t circularBuffer_pop( tCircularBuffer* pBuffer, uint8_t* pOutData, uint16_t size )
+uint8_t circularBuffer_pop( tCircularBuffer* pCbuffer, uint8_t* pOutData, uint16_t size )
 {
 	return 0;
 }

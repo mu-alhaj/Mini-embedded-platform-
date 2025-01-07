@@ -123,17 +123,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t counter = 0;
-  test[0] = 0;
-  test[1] = 1;
-  test[2] = 2;
   while (1)
   {
-	  circularBuffer_push( &cbuffer, test, 3 );
-	  counter += 3;
-	  test[0] = counter;
-	  test[1] = counter + 1;
-	  test[2] = counter + 2;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
