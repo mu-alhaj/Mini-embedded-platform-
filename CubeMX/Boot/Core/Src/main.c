@@ -26,6 +26,7 @@
 /* USER CODE BEGIN Includes */
 #include <string.h>
 #include "circularBuffer.h"
+#include "flash.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -72,6 +73,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 	{
 		// copy data to circular buffer;
 		circularBuffer_push( &cbuffer, uart_dma_rxBuf, Size );
+		flash_write( APP_START_ADD, &cbuffer.pBuffer[cbuffer.start], Size );
 
 		// restart receiving data.
 		HAL_UARTEx_ReceiveToIdle_DMA(&huart2, uart_dma_rxBuf, RX_BUF_SIZE);
@@ -123,8 +125,16 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint32_t add = APP_START_ADD;
+  uint8_t data[4];
+  data[0] = 0xaa;
+  data[1] = 0xbb;
+  data[2] = 0xcc;
+  data[3] = 0xdd;
   while (1)
   {
+		flash_write( add, data, 4 );
+		add += 4;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
