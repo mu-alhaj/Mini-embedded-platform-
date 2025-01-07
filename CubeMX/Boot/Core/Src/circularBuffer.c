@@ -41,7 +41,7 @@ uint8_t circularBuffer_init( tCircularBuffer* pBuffer, uint8_t* pData, uint16_t 
 	pBuffer->start 	= 0;
 	pBuffer->end   	= 0;
 	pBuffer->pBuffer 	= pData;
-	memset( pBuffer->pBuffer, 0, pBuffer->size );
+	memset( pBuffer->pBuffer, 1, pBuffer->size );
 
 	return 0;
 }
@@ -50,20 +50,20 @@ uint8_t circularBuffer_init( tCircularBuffer* pBuffer, uint8_t* pData, uint16_t 
  * Function
  * **********************************
  */
-uint8_t circularBuffer_push( tCircularBuffer* pBuffer, uint8_t* pInData, uint16_t size )
+uint8_t circularBuffer_push( tCircularBuffer* pCbuffer, uint8_t* pInData, uint16_t size )
 {
 	// sanity check in parameters.
-	if( pBuffer == NULL || pInData == NULL || pBuffer->size < size )
+	if( pCbuffer == NULL || pInData == NULL || pCbuffer->size < size )
 	{
 		return 1;
 	}
 
 	// check if there is enough place for the incoming data remaining in the buffer.
-	if ( get_availabe( pBuffer ) < size )
-	{
-		// not enough
-		return 1;
-	}
+//	if ( get_availabe( pCbuffer ) < size )
+//	{
+//		// not enough
+//		return 1;
+//	}
 
 	/*
 	 * Buffer
@@ -76,20 +76,22 @@ uint8_t circularBuffer_push( tCircularBuffer* pBuffer, uint8_t* pInData, uint16_
 	 * */
 
 	// do we need to loop over the buffer?
-	uint16_t toTheEnd = pBuffer->size - pBuffer->end;
+	uint16_t toTheEnd = pCbuffer->size - pCbuffer->end;
+	uint8_t* pDes = &(*pCbuffer).pBuffer[pCbuffer->end];
 	if ( toTheEnd < size )
 	{
 		// first copy from the end of the existing data to the end of the buffer
-		memcpy( pBuffer->pBuffer[pBuffer->end], pInData, toTheEnd );
+		memcpy( pDes, pInData, toTheEnd );
 		// copy the reset of the inData from the beginning of the buffer.
-		memcpy( pBuffer->pBuffer[0], pInData[toTheEnd], toTheEnd );
+		memcpy( (*pCbuffer).pBuffer, &pInData[toTheEnd], ( size - toTheEnd ) );
 	}
 	else
 	{
-		memcpy( pBuffer->pBuffer[pBuffer->end], pInData, size );
+		memcpy( pDes, pInData, size );
+		//pBuffer->pBuffer[pBuffer->end] = pInData[0];
 	}
 
-	pBuffer->end = ( pBuffer->end + size ) % pBuffer->size;
+	pCbuffer->end = ( pCbuffer->end + size ) % pCbuffer->size;
 
 	return 0;
 }
