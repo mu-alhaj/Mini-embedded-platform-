@@ -38,7 +38,7 @@
 /* USER CODE BEGIN PD */
 
 #define RX_BUF_SIZE	64
-#define BUF_SIZE	10
+#define BUF_SIZE	64
 
 /* USER CODE END PD */
 
@@ -55,6 +55,9 @@ uint8_t uart_dma_rxBuf[RX_BUF_SIZE];
 uint8_t test[RX_BUF_SIZE];
 uint8_t cData[BUF_SIZE];
 tCircularBuffer cbuffer;
+uint8_t data_written = 0;
+uint8_t data_size = 0;
+uint32_t flash_at = APP_START_ADD;
 
 /* USER CODE END PV */
 
@@ -73,7 +76,10 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 	{
 		// copy data to circular buffer;
 		circularBuffer_push( &cbuffer, uart_dma_rxBuf, Size );
-		flash_write( APP_START_ADD, &cbuffer.pBuffer[cbuffer.start], Size );
+		flash_write( flash_at, &cbuffer.pBuffer[cbuffer.start], Size );
+		data_written = 1;
+		data_size = Size;
+		flash_at += Size;
 
 		// restart receiving data.
 		HAL_UARTEx_ReceiveToIdle_DMA(&huart2, uart_dma_rxBuf, RX_BUF_SIZE);
@@ -125,16 +131,16 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint32_t add = APP_START_ADD;
-  uint8_t data[4];
-  data[0] = 0xaa;
-  data[1] = 0xbb;
-  data[2] = 0xcc;
-  data[3] = 0xdd;
+  uint8_t pFlash_data[BUF_SIZE];
   while (1)
   {
-		flash_write( add, data, 4 );
-		add += 4;
+	  if ( data_written == 1 )
+	  {
+		  uint32_t read_at = (flash_at - data_size);
+		  flash_read( read_at , pFlash_data, data_size);
+		  HAL_UART_Transmit(&huart2, pFlash_data, data_size, HAL_MAX_DELAY);
+		  data_written = 0;
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

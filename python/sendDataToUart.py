@@ -3,7 +3,7 @@ import serial
 # Set up the serial port
 ser = serial.Serial( port='COM4', baudrate=112500, timeout=1 )
 
-msg = "Hello"
+msg = "Hello flash\r\n"
 msg_hex= 0xabababab
 
 print("Start\n")
@@ -16,7 +16,6 @@ def uart_send_data( data ) :
         print("write\n")
         ser.write(data_bytes)
         print(f"data sent : {data} \n")
-        ser.close()
     else:
         print("serial port is not open\n")
 
@@ -28,11 +27,20 @@ def uart_send_hex( data_hex ):
         print("write\n")
         ser.write(data_bytes)
         print(f"data sent : {data_bytes} \n")
-        ser.close()
     else:
         print("serial port is not open\n")
 
-#uart_send_data(msg)
-uart_send_hex( msg_hex)
+uart_send_data(msg)
+#uart_send_hex( msg_hex)
+done = False
+while True:
+        if ser.in_waiting > 0:
+            data = ser.read(ser.in_waiting)
+            print(f"Received: {data.decode('utf-8')}")
+            done = True
+        if done :
+            break
 
+
+ser.close()
 exit(0)

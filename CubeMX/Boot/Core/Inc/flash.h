@@ -23,6 +23,7 @@
 /*
  * write data to flash.
  * this function can only handle uint16 aligned data.
+ * make sure the area you want to write is already erased.
  * in parameters:
  * - Address: Address in flash memory to write to.
  * - Data: pointer to data to be written.

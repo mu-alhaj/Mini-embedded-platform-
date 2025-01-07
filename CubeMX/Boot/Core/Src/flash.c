@@ -59,35 +59,64 @@ uint8_t flash_write( uint32_t Address, uint8_t* pData, uint32_t size )
 	HAL_FLASH_Unlock();
 	uint32_t remaining_bytes = size;
 	HAL_StatusTypeDef status = HAL_ERROR;
-	uint64_t inData= 0xffffffffffffffff;
-	memcpy (&inData, pData, size);
+	uint32_t read_offset = 0;
+	uint32_t write_offset = 0;
+	uint8_t oneByte= 0;
 	while( remaining_bytes )
 	{
+		uint64_t inData= 0xffffffffffffffff;
+		uint32_t writing_address = Address + write_offset;
 		// write double words as long it is possible.
 		if ( remaining_bytes >= DOUBLE_WORD )
 		{
-			status = HAL_FLASH_Program( FLASH_TYPEPROGRAM_DOUBLEWORD, Address, inData );
+			memcpy (&inData, &pData[read_offset], DOUBLE_WORD);
+			status = HAL_FLASH_Program( FLASH_TYPEPROGRAM_DOUBLEWORD, writing_address, inData );
 			if ( status == HAL_OK )
 			{
 				remaining_bytes -= DOUBLE_WORD;
+				read_offset 	+= DOUBLE_WORD;
+				write_offset	+= DOUBLE_WORD;
 			}
 		}
 		// then write single word
 		else if ( remaining_bytes >= ONE_WORD )
 		{
-			status = HAL_FLASH_Program( FLASH_TYPEPROGRAM_WORD, Address, inData );
+			memcpy (&inData, &pData[read_offset], ONE_WORD);
+			status = HAL_FLASH_Program( FLASH_TYPEPROGRAM_WORD, writing_address, inData );
 			if ( status == HAL_OK )
 			{
 				remaining_bytes -= ONE_WORD;
+				read_offset 	+= ONE_WORD;
+				write_offset	+= ONE_WORD;
 			}
 		}
 		// lastly, write half word
 		else
 		{
-			status = HAL_FLASH_Program( FLASH_TYPEPROGRAM_HALFWORD, Address, inData );
+			if ( remaining_bytes >= HALF_WORD )
+				memcpy (&inData, &pData[read_offset], HALF_WORD);
+			else
+			{
+				// if there is only one byte, move it to inData.
+				memcpy (&inData, &pData[read_offset], 1);
+				oneByte = 1;
+			}
+			status = HAL_FLASH_Program( FLASH_TYPEPROGRAM_HALFWORD, writing_address, inData );
 			if ( status == HAL_OK )
 			{
-				remaining_bytes -= HALF_WORD;
+				if ( oneByte == 1 )
+				{
+					remaining_bytes -= 1;
+					read_offset 	+= 1;
+					write_offset	+= 1;
+				}
+				else
+				{
+					remaining_bytes -= HALF_WORD;
+					read_offset 	+= HALF_WORD;
+					write_offset	+= HALF_WORD;
+				}
+
 			}
 		}
 
@@ -102,7 +131,11 @@ uint8_t flash_write( uint32_t Address, uint8_t* pData, uint32_t size )
  * Function
  * **********************************
  */
-uint8_t flash_read(uint32_t Address, uint8_t* pData, uint32_t size);
+uint8_t flash_read(uint32_t address, uint8_t* pData, uint32_t size)
+{
+	memcpy( pData, address, size );
+	return 0;
+}
 
 /************************************
  * Function
