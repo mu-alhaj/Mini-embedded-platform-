@@ -38,7 +38,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define RX_BUF_SIZE	64
+
 #define BUF_SIZE	64
 
 /* USER CODE END PD */
@@ -52,19 +52,6 @@
 
 /* USER CODE BEGIN PV */
 
-uint8_t uart_dma_rxBuf[RX_BUF_SIZE];
-uint8_t test[RX_BUF_SIZE];
-uint8_t cData[BUF_SIZE];
-tCircularBuffer cbuffer;
-uint8_t data_written = 0;
-uint8_t data_size = 0;
-uint32_t flash_at = APP_START_ADD;
-
-void toggleLed()
-{
-	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-}
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -76,15 +63,7 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
-{
-	if ( huart->Instance == USART2 )
-	{
-		scheduler_runTask( toggleLed );
-		// restart receiving data.
-		HAL_UARTEx_ReceiveToIdle_DMA(&huart2, uart_dma_rxBuf, RX_BUF_SIZE);
-	}
-}
+
 /* USER CODE END 0 */
 
 /**
@@ -120,8 +99,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UARTEx_ReceiveToIdle_DMA( &huart2, uart_dma_rxBuf, RX_BUF_SIZE );
-  __HAL_DMA_DISABLE_IT( huart2.hdmarx, DMA_IT_HT );	// not interested of half transfer interrupt.
+  serial_uart_receiveToIdle( &huart2 );
 
   scheduler_init();
   scheduler_run();

@@ -1,0 +1,2 @@
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:41:9:serial_uart_receiveToIdle	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:62:6:HAL_UARTEx_RxEventCallback	2

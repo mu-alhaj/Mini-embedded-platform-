@@ -10,10 +10,18 @@
 
 #include "stm32f3xx_hal.h"
 
-// Defines
+/*
+ * Public defines
+ * */
 
+/*
+ * Public data types.
+ * */
+//typedef functionPointer void (*pTask)(void);
 
-// public interface
+/*
+ * Public function prototypes.
+ * */
 
 void scheduler_init( void );
 
