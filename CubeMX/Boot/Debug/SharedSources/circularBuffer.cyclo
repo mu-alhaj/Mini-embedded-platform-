@@ -1,0 +1,5 @@
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/circularBuffer.c:31:9:circularBuffer_init	4
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/circularBuffer.c:53:9:circularBuffer_push	5
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/circularBuffer.c:103:9:circularBuffer_pop	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/circularBuffer.c:112:10:circularBuffer_filledSize	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/circularBuffer.c:124:10:get_availabe	3

@@ -1,3 +1,0 @@
-../Core/Src/flash.c:41:9:flash_write	13
-../Core/Src/flash.c:134:9:flash_read	1
-../Core/Src/flash.c:144:9:flash_erasePage	2

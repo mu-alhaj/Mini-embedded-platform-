@@ -27,6 +27,7 @@
 #include <string.h>
 #include "circularBuffer.h"
 #include "flash.h"
+#include "scheduler.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,6 +60,11 @@ uint8_t data_written = 0;
 uint8_t data_size = 0;
 uint32_t flash_at = APP_START_ADD;
 
+void toggleLed()
+{
+	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+}
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,13 +80,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
 	if ( huart->Instance == USART2 )
 	{
-		// copy data to circular buffer;
-		circularBuffer_push( &cbuffer, uart_dma_rxBuf, Size );
-		flash_write( flash_at, &cbuffer.pBuffer[cbuffer.start], Size );
-		data_written = 1;
-		data_size = Size;
-		flash_at += Size;
-
+		scheduler_runTask( toggleLed );
 		// restart receiving data.
 		HAL_UARTEx_ReceiveToIdle_DMA(&huart2, uart_dma_rxBuf, RX_BUF_SIZE);
 	}
@@ -120,27 +120,18 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  circularBuffer_init( &cbuffer, cData , BUF_SIZE );
-
   HAL_UARTEx_ReceiveToIdle_DMA( &huart2, uart_dma_rxBuf, RX_BUF_SIZE );
   __HAL_DMA_DISABLE_IT( huart2.hdmarx, DMA_IT_HT );	// not interested of half transfer interrupt.
 
-
+  scheduler_init();
+  scheduler_run();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint8_t pFlash_data[BUF_SIZE];
   while (1)
   {
-	  if ( data_written == 1 )
-	  {
-		  uint32_t read_at = (flash_at - data_size);
-		  flash_read( read_at , pFlash_data, data_size);
-		  HAL_UART_Transmit(&huart2, pFlash_data, data_size, HAL_MAX_DELAY);
-		  data_written = 0;
-	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
