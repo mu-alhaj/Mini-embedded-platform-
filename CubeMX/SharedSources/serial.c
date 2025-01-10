@@ -10,26 +10,35 @@
 /*
  * Includes
  * */
+#include "serial.h"
 #include "scheduler.h"
 #include "led.h"
 /*
  * Private defines.
  * */
-#define RX_BUF_SIZE	64
+#define RX_BUF_SIZE	128
 /*
  * Private data types.
  * */
+struct
+{
+	UART_HandleTypeDef* pUart;
+	tCircularBuffer* 	pCBuff;
+	uint8_t 			pRxBuff[RX_BUF_SIZE];
+	uint8_t				receivedSize;
+	void (*pCmdHandlerCB)(void);
+}typedef tSerialVars;
 
 
 /*
  * Private data.
  * */
-uint8_t uart_dma_rxBuf[RX_BUF_SIZE];
-UART_HandleTypeDef* puart;
+static tSerialVars serialVars;
+
 /*
  * Private function prototypes.
  * */
-
+void pushRxToCBuff();
 /*
  * Public function definitions.
  * */
@@ -38,16 +47,35 @@ UART_HandleTypeDef* puart;
  * ********************************************
  * 					function
  * ********************************************/
-uint8_t serial_uart_receiveToIdle( UART_HandleTypeDef *huart )
+void serial_uart_init(  UART_HandleTypeDef *huart, tCircularBuffer* pCBuff )
 {
-	puart = huart;
-	HAL_UARTEx_ReceiveToIdle_DMA( puart, uart_dma_rxBuf, RX_BUF_SIZE );
+	serialVars.pUart  = huart;
+	serialVars.pCBuff = pCBuff;
+
+	return;
+}
+
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
+uint8_t serial_uart_receiveToIdle()
+{
+	HAL_UARTEx_ReceiveToIdle_DMA( serialVars.pUart, serialVars.pRxBuff, RX_BUF_SIZE );
 
 	  // not interested of half transfer interrupt.
-	  __HAL_DMA_DISABLE_IT( puart->hdmarx, DMA_IT_HT );
+	  __HAL_DMA_DISABLE_IT( serialVars.pUart->hdmarx, DMA_IT_HT );
 	return 0;
 }
 
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
+void serial_uart_registerCB( void (*pCB)(void) )
+{
+	serialVars.pCmdHandlerCB = pCB;
+}
 
 /*
  * Private function definitions.
@@ -57,15 +85,29 @@ uint8_t serial_uart_receiveToIdle( UART_HandleTypeDef *huart )
  * ********************************************
  * 					function
  * ********************************************/
+void pushRxToCBuff()
+{
+	circularBuffer_push( serialVars.pCBuff, serialVars.pRxBuff, serialVars.receivedSize );
 
+	// notify cmdhandler about the new data.
+	scheduler_runTask( serialVars.pCmdHandlerCB );
+	return;
+}
 
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-	if ( huart->Instance == USART2 )
+	if ( huart->Instance == serialVars.pUart->Instance )
 	{
 		// restart receiving data.
-		HAL_UARTEx_ReceiveToIdle_DMA( puart, uart_dma_rxBuf, RX_BUF_SIZE);
-		scheduler_runTask( led_run );
+		HAL_UARTEx_ReceiveToIdle_DMA( serialVars.pUart, serialVars.pRxBuff, RX_BUF_SIZE );
+		serialVars.receivedSize = Size;
+
+		// move received data from rxBuff to cBuffer out side of the interrupt context.
+		scheduler_runTask( pushRxToCBuff );
 	}
 	return;
 }

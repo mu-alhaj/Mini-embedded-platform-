@@ -17,7 +17,7 @@
 /*
  * Public data types.
  * */
-//typedef functionPointer void (*pTask)(void);
+typedef  void (*funcPtr)(void);
 
 /*
  * Public function prototypes.

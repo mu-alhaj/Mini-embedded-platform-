@@ -96,14 +96,17 @@ void scheduler_run( void )
 	while( 1 )
 	{
 		// run once tasks:
-		for ( uint8_t i = 0; i < schedulerVars.nrOfRunOnceTasks; i += 1 )
+		for ( uint8_t i = 0; i < SCHEDULER_MAX_NR_RUN_ONCE_TASKS; i += 1 )
 		{
 			// execute task
-			schedulerVars.runOnceTaskList[i].pTask();
+			if ( schedulerVars.runOnceTaskList[i].pTask != NULL )
+			{
+				schedulerVars.runOnceTaskList[i].pTask();
+				// remove task from list:
+				schedulerVars.runOnceTaskList[i].pTask = NULL;
+				schedulerVars.nrOfRunOnceTasks -= 1;
+			}
 
-			// remove task from list:
-			schedulerVars.runOnceTaskList[i].pTask = NULL;
-			schedulerVars.nrOfRunOnceTasks -= 1;
 		}
 
 		// repeated tasks:

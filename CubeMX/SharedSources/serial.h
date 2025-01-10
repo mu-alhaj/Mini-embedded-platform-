@@ -13,6 +13,7 @@
  * Includes
  * */
 #include "usart.h"
+#include "circularBuffer.h"
 
 /*
  * Public defines
@@ -33,7 +34,16 @@
  * 			param2 :
  * return : 0 if succeed.
  * */
-uint8_t serial_uart_receiveToIdle( UART_HandleTypeDef *huart );
+void serial_uart_init(  UART_HandleTypeDef *huart, tCircularBuffer* pCBuff );
+
+/*
+ * desc   :	set up serial uart.
+ * param  :
+ * 			param1 :
+ * 			param2 :
+ * return : 0 if succeed.
+ * */
+uint8_t serial_uart_receiveToIdle( );
 
 /*
  * desc   :	let other modules to register call backs to be called by this module.
@@ -42,6 +52,6 @@ uint8_t serial_uart_receiveToIdle( UART_HandleTypeDef *huart );
  * 			param2 :
  * return : 0 if succeed.
  * */
-uint8_t serial_uart_registerCB();
+void serial_uart_registerCB( void (*pCB)(void) );
 
 #endif /* SERIAL_H_ */

@@ -28,6 +28,7 @@
 #include "circularBuffer.h"
 #include "flash.h"
 #include "scheduler.h"
+#include "serial.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,9 +38,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
-
-#define BUF_SIZE	64
 
 /* USER CODE END PD */
 
@@ -99,7 +97,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  serial_uart_receiveToIdle( &huart2 );
+  cmdhandler_init( &huart2 );
 
   scheduler_init();
   scheduler_run();
