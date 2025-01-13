@@ -16,7 +16,8 @@
 /*
  * Private defines.
  * */
-
+#define CMD_LED_SET		0x01u
+#define CMD_LED_TOGGLE	0x02u
 /*
  * Private data types.
  * */
@@ -40,7 +41,7 @@
 void led_init()
 {
 	// register led commands with for the command handler to recognize.
-	tCmdhandler_cmd cmd_set = { .cmd= 0x0001, .funPtr = led_cmd_set };
+	tCmdhandler_registerCmd cmd_set = { .funPtr = led_cmd_handler };
 
 	cmdhandler_registerCmd( cmd_set );
 	return;
@@ -54,7 +55,6 @@ static uint8_t counter = 0;
 void led_toggle( GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin )
 {
 	HAL_GPIO_TogglePin( GPIOx, GPIO_Pin );
-	counter ++;
 	return;
 }
 
@@ -71,11 +71,28 @@ void led_run()
  * ********************************************
  * 					function
  * ********************************************/
-void led_cmd_set( void *param, uint16_t size )
+void led_cmd_handler( void *param )
 {
-//	uint8_t set = (uint8_t)param;
-//	HAL_GPIO_WritePin( LD2_GPIO_Port, LD2_Pin, set);
-	led_run();
+	tCmdhandler_cmd cmd;
+	memcpy( &cmd, (uint8_t*)param, sizeof(tCmdhandler_cmd) );
+	switch( cmd.cmd )
+	{
+		case CMD_LED_SET:
+		{
+			uint8_t set = 0;// (uint8_t)param;
+			memcpy(&set, &cmd.data, cmd.dataSize );
+			HAL_GPIO_WritePin( LD2_GPIO_Port, LD2_Pin, set);
+			break;
+		}
+		case CMD_LED_TOGGLE:
+		{
+			led_toggle( LD2_GPIO_Port, LD2_Pin);
+			break;
+		}
+		default:
+			break;
+	}
+
 	return;
 }
 

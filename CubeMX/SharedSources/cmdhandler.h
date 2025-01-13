@@ -25,9 +25,14 @@
  * */
 // command data type to connect command with a function.
 struct{
+	void (*funPtr)(void*);
+}typedef tCmdhandler_registerCmd;
+
+struct {
 	uint8_t 	cmd;
-	void (*funPtr)(void*, uint16_t);
-}typedef tCmdhandler_cmd;
+	uint16_t 	dataSize;
+	uint8_t 	data[256];
+} typedef tCmdhandler_cmd;
 
 /*
  * Public function prototypes.
@@ -50,7 +55,7 @@ void cmdhandler_init( UART_HandleTypeDef* huart );
  * 			param2 :
  * return : 0 if succeed.
  * */
-uint8_t cmdhandler_registerCmd( tCmdhandler_cmd cmd );
+uint8_t cmdhandler_registerCmd( tCmdhandler_registerCmd cmd );
 
 
 #endif /* CMDHANDLER_H_ */

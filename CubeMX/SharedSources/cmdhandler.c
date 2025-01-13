@@ -31,25 +31,20 @@
 #define CMD_LIST_SIZE 	10
 
 // commands
-#define CMD_NEW			0xABABu
-#define CMD_LED_TOGGLE	0x0001u
+#define CMD_NEW			0xabu
 
 /*
  * Private data types.
  * */
-struct {
-	uint8_t cmd;
-	uint16_t dataSize;
-	uint8_t data[256];
-} typedef tcmd;
+
 
 /*
  * Private data.
  * */
 static uint8_t cbuff_data[CBUFF_DATA_SIZE];
 static tCircularBuffer CBuffer;
-static tcmd inCmd;
-static tCmdhandler_cmd cmd_list[CMD_LIST_SIZE];
+static tCmdhandler_cmd inCmd;
+static tCmdhandler_registerCmd cmd_list[CMD_LIST_SIZE];
 
 /*
  * Private function prototypes.
@@ -78,19 +73,17 @@ void cmdhandler_init( UART_HandleTypeDef* huart )
 	// initialize cmd list.
 	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
 	{
-		cmd_list[i].cmd 	= 0x0000u;
 		cmd_list[i].funPtr 	= NULL;
 	}
 	return;
 }
 
-uint8_t cmdhandler_registerCmd( tCmdhandler_cmd cmd )
+uint8_t cmdhandler_registerCmd( tCmdhandler_registerCmd cmd )
 {
 	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
 	{
-		if ( cmd_list[i].cmd == 0x0000u )
+		if ( cmd_list[i].funPtr == NULL )
 		{
-			cmd_list[i].cmd 	= cmd.cmd;
 			cmd_list[i].funPtr 	= cmd.funPtr;
 			return 0;
 		}
@@ -118,11 +111,11 @@ void cmdhandler_processNewData()
 		circularBuffer_pop( &CBuffer, &oneByte, 1 );
 	}
 
-//	if ( oneByte != (uint8_t)CMD_NEW )
-//	{
-//		// the buffer is empty and we did not found a new command.
-//		return;
-//	}
+	if ( oneByte != (uint8_t)CMD_NEW )
+	{
+		// the buffer is empty and we did not found a new command.
+		return;
+	}
 
 	// read command
 	circularBuffer_pop( &CBuffer, &cmd, 1 );
@@ -145,9 +138,9 @@ void cmdhandler_processNewData()
 
 	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
 	{
-		if ( cmd_list[i].cmd != 0x0000u && cmd_list[i].funPtr != NULL )
+		if ( cmd_list[i].funPtr != NULL )
 		{
-			cmd_list[i].funPtr( &inCmd.data, dataSize );
+			cmd_list[i].funPtr( &inCmd );
 		}
 	}
 

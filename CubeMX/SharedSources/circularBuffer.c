@@ -130,7 +130,8 @@ uint8_t circularBuffer_pop( tCircularBuffer* pCbuffer, uint8_t* pOutData, uint16
  */
 uint16_t circularBuffer_getSize( tCircularBuffer* pBuffer )
 {
-	return 0;
+	uint16_t size = ( pBuffer->capacity + pBuffer->head - pBuffer->tail ) % pBuffer->capacity;
+	return size;
 }
 
 /************************************
@@ -181,7 +182,7 @@ uint16_t get_availabe( tCircularBuffer* pBuffer )
 	}
 
 	// added capacity in the beginning to avoid negative modulus.
-	uint16_t available = ( pBuffer->capacity + pBuffer->tail - pBuffer->head ) % pBuffer->capacity;
+	uint16_t available = ( pBuffer->capacity + pBuffer->head - pBuffer->tail ) % pBuffer->capacity;
 	return available;
 }
 

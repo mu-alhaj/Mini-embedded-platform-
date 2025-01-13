@@ -39,7 +39,7 @@ void led_toggle( GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin );
 
 void led_run();
 
-void led_cmd_set( void *param, uint16_t size );
+void led_cmd_handler( void *param );
 
 
 
