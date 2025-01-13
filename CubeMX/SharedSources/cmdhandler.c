@@ -28,16 +28,28 @@
  * Private defines.
  * */
 #define CBUFF_DATA_SIZE 256
+#define CMD_LIST_SIZE 	10
+
+// commands
+#define CMD_NEW			0xABABu
+#define CMD_LED_TOGGLE	0x0001u
 
 /*
  * Private data types.
  * */
+struct {
+	uint8_t cmd;
+	uint16_t dataSize;
+	uint8_t data[256];
+} typedef tcmd;
 
 /*
  * Private data.
  * */
 static uint8_t cbuff_data[CBUFF_DATA_SIZE];
 static tCircularBuffer CBuffer;
+static tcmd inCmd;
+static tCmdhandler_cmd cmd_list[CMD_LIST_SIZE];
 
 /*
  * Private function prototypes.
@@ -62,7 +74,30 @@ void cmdhandler_init( UART_HandleTypeDef* huart )
 
 	// to let us know to uart received new data;
 	serial_uart_registerCB( cmdhandler_processNewData );
+
+	// initialize cmd list.
+	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
+	{
+		cmd_list[i].cmd 	= 0x0000u;
+		cmd_list[i].funPtr 	= NULL;
+	}
 	return;
+}
+
+uint8_t cmdhandler_registerCmd( tCmdhandler_cmd cmd )
+{
+	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
+	{
+		if ( cmd_list[i].cmd == 0x0000u )
+		{
+			cmd_list[i].cmd 	= cmd.cmd;
+			cmd_list[i].funPtr 	= cmd.funPtr;
+			return 0;
+		}
+	}
+
+	// if we looped through the whole list without finding an empty slot.
+	return 1;
 }
 /*
  * Private function definitions.
@@ -74,6 +109,47 @@ void cmdhandler_init( UART_HandleTypeDef* huart )
  * ********************************************/
 void cmdhandler_processNewData()
 {
-	led_run();
+	uint8_t oneByte = 0;
+	uint16_t dataSize = 0;
+	uint8_t cmd = 0;
+	// find new command:
+	while( !circularBuffer_isEmepty(&CBuffer) && oneByte != (uint8_t)CMD_NEW )
+	{
+		circularBuffer_pop( &CBuffer, &oneByte, 1 );
+	}
+
+//	if ( oneByte != (uint8_t)CMD_NEW )
+//	{
+//		// the buffer is empty and we did not found a new command.
+//		return;
+//	}
+
+	// read command
+	circularBuffer_pop( &CBuffer, &cmd, 1 );
+	inCmd.cmd = cmd;
+
+	// read data size
+	circularBuffer_pop( &CBuffer, &dataSize, 2 );
+	inCmd.dataSize = dataSize;
+	if ( dataSize != 0 )
+	{
+		if ( circularBuffer_getSize(&CBuffer) >= dataSize )
+		{
+			circularBuffer_pop( &CBuffer, &inCmd.data, dataSize );
+		}
+	}
+
+	// to this point we have a command, either with data or without.
+
+	// send the command to the relevant module.
+
+	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
+	{
+		if ( cmd_list[i].cmd != 0x0000u && cmd_list[i].funPtr != NULL )
+		{
+			cmd_list[i].funPtr( &inCmd.data, dataSize );
+		}
+	}
+
 	return;
 }

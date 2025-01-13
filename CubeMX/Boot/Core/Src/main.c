@@ -98,6 +98,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   cmdhandler_init( &huart2 );
+  led_init();
+
 
   scheduler_init();
   scheduler_run();

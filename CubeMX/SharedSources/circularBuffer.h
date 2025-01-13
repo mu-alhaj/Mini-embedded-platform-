@@ -15,9 +15,9 @@
 // Public data types.
 struct
 {
-	uint16_t size;			// maximum size of the pBuffer.
-	uint16_t end;			// index of last element +1 in buffer, always available to write.
-	uint16_t start;			// index of first element in buffer
+	uint16_t capacity;			// maximum size of the pBuffer.
+	uint16_t tail;			// index of last element +1 in buffer, always available to write.
+	uint16_t head;			// index of first element in buffer
 	uint8_t* pBuffer;
 }typedef tCircularBuffer;
 
@@ -27,11 +27,11 @@ struct
 /*
  * initiate a circular buffer.
  * in parameters:
- * - data: pointer to data array to be handled by the buffer.
- * - size: size of the data buffer.
+ * - data    : pointer to data array to be handled by the buffer.
+ * - capacity: size of the data buffer.
  * return 0 if succeed, 1 otherwise.
  * */
-uint8_t circularBuffer_init( tCircularBuffer* pBuffer, uint8_t* pData, uint16_t size );
+uint8_t circularBuffer_init( tCircularBuffer* pBuffer, uint8_t* pData, uint16_t capacity );
 
 /*
  * push data into the buffer.
@@ -57,8 +57,22 @@ uint8_t circularBuffer_pop( tCircularBuffer* pBuffer, uint8_t* pOutData, uint16_
  * - buffer: pointer to the circular buffer
  * return size of the data stored in the buffer.
  * */
-uint16_t circularBuffer_filledSize( tCircularBuffer* pBuffer );
+uint16_t circularBuffer_getSize( tCircularBuffer* pBuffer );
 
+/*
+ * Check if the buffer is full
+ * in parameters:
+ * - buffer: pointer to the circular buffer
+ * return 1 if true 0 otherwise.
+ * */
+uint16_t circularBuffer_isFull( tCircularBuffer* pBuffer );
 
+/*
+ * Check if the buffer is empty
+ * in parameters:
+ * - buffer: pointer to the circular buffer
+ * return 1 if true 0 otherwise.
+ * */
+uint16_t circularBuffer_isEmepty( tCircularBuffer* pBuffer );
 
 #endif /* CIRCULARBUFFER_CIRCULARBUFFER_H_ */
