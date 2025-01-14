@@ -9,7 +9,7 @@
 
 // Defines
 #define SCHEDULER_MAX_NR_TASKS				10
-#define SCHEDULER_MAX_NR_RUN_ONCE_TASKS		10
+#define SCHEDULER_MAX_NR_RUN_ONCE_TASKS		20
 
 // private data types.
 struct

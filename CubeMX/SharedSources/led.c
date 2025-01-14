@@ -72,6 +72,16 @@ void led_run()
  * ********************************************
  * 					function
  * ********************************************/
+
+
+/*
+ * Private function definitions.
+ * */
+
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
 void led_cmd_handler( tCmdhandler_cmd inCmd )
 {
 	// make sure the command is for us.
@@ -101,15 +111,4 @@ void led_cmd_handler( tCmdhandler_cmd inCmd )
 
 	return;
 }
-
-/*
- * Private function definitions.
- * */
-
-/*
- * ********************************************
- * 					function
- * ********************************************/
-
-
 
