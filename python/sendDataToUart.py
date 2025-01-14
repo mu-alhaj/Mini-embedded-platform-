@@ -100,12 +100,12 @@ def main ():
     flash_erase_page( address )
     time.sleep(1)
 
-    while( counter < 5 ):
+    while( counter < 10 ):
 
         led_toggle()
-        time.sleep(1)
+        time.sleep(0.05)
         flash_write( address,f"Hello{index}" )
-        time.sleep(1)
+        time.sleep(0.05)
         address += 6
 
         index = (index + 1 ) % 10

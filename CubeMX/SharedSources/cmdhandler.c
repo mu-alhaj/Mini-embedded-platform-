@@ -7,8 +7,8 @@
  * 			received.
  * 			Received commands should look like the follows:
  *
- * 			 uint8	   uint8	  uint16        uint8[]
- * 			new cmd		cmd 	data size 		  data
+ * 			 uint8	   		uint16		  uint16        uint8[]
+ * 			new cmd		mouleid-cmdid 	 data size 		  data
  *
  *  Created on: Jan 10, 2025
  *      Author: wxj509
@@ -32,7 +32,7 @@
 #define CBUFF_DATA_SIZE 256
 #define CMD_LIST_SIZE 	10
 
-// commands
+// new command key
 #define CMD_NEW			((unsigned char)0xabu)
 
 /*
