@@ -11,15 +11,16 @@
 /*
  * Includes
  * */
+#include <moduleId.h>
 #include "led.h"
 #include "cmdhandler.h"
 /*
  * Private defines.
  * */
-#define LED_MODULE_ID   0x01u
 
-#define CMD_LED_SET		0x01u
-#define CMD_LED_TOGGLE	0x02u
+
+#define CMD_LED_SET		((unsigned char)0x01u)
+#define CMD_LED_TOGGLE	((unsigned char)0x02u)
 /*
  * Private data types.
  * */
@@ -43,9 +44,9 @@
 void led_init()
 {
 	// register led commands with for the command handler to recognize.
-	tCmdhandler_moduleCmdHandler cmd_set = { .funPtr = led_cmd_handler };
+	tCmdhandler_moduleCmdHandler cmd_handler = { .moduleId = MODULE_ID_LED, .funPtr = led_cmd_handler };
 
-	cmdhandler_registerCmd( cmd_set );
+	cmdhandler_registerModuleCmdHandler( cmd_handler );
 	return;
 }
 
@@ -78,7 +79,7 @@ void led_cmd_handler( void *param )
 	tCmdhandler_cmd cmd;
 	memcpy( &cmd, (uint8_t*)param, sizeof(tCmdhandler_cmd) );
 
-	if ( cmd.id.module != LED_MODULE_ID )
+	if ( cmd.id.module != MODULE_ID_LED )
 		return;
 
 	switch( cmd.id.cmd )

@@ -1,5 +1,6 @@
 import serial
 import struct
+import time
 
 new_cmd     = 0xab
 # commands list
@@ -58,7 +59,19 @@ def main ():
     global ser
     ser = serial.Serial( port='COM4', baudrate=112500, timeout=1 )
 
-    set_led(False)
+    counter = 0
+    set = True
+    while( counter < 100 ):
+        if ( set ):
+            set = False
+        else:
+            set = True
+
+        set_led( set )
+
+        time.sleep(0.03)
+
+        counter += 1
     
     ser.close()
 

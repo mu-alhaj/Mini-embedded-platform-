@@ -20,9 +20,11 @@
 /*
  * Includes
  * */
+#include <string.h>  // Include this header for memcpy
 #include "cmdhandler.h"
 #include "circularBuffer.h"
 #include "led.h"
+#include "moduleId.h"
 
 /*
  * Private defines.
@@ -31,7 +33,7 @@
 #define CMD_LIST_SIZE 	10
 
 // commands
-#define CMD_NEW			0xabu
+#define CMD_NEW			((unsigned char)0xabu)
 
 /*
  * Private data types.
@@ -44,7 +46,7 @@
 static uint8_t cbuff_data[CBUFF_DATA_SIZE];
 static tCircularBuffer CBuffer;
 static tCmdhandler_cmd inCmd;
-static tCmdhandler_moduleCmdHandler cmd_list[CMD_LIST_SIZE];
+static tCmdhandler_moduleCmdHandler cmdhandler_list[CMD_LIST_SIZE];
 
 /*
  * Private function prototypes.
@@ -73,18 +75,20 @@ void cmdhandler_init( UART_HandleTypeDef* huart )
 	// initialize cmd list.
 	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
 	{
-		cmd_list[i].funPtr 	= NULL;
+		cmdhandler_list[i].moduleId	= MODULE_ID_NONE;
+		cmdhandler_list[i].funPtr 		= NULL;
 	}
 	return;
 }
 
-uint8_t cmdhandler_registerCmd( tCmdhandler_moduleCmdHandler cmd )
+uint8_t cmdhandler_registerModuleCmdHandler( tCmdhandler_moduleCmdHandler handler )
 {
 	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
 	{
-		if ( cmd_list[i].funPtr == NULL )
+		if ( cmdhandler_list[i].moduleId == MODULE_ID_NONE )
 		{
-			cmd_list[i].funPtr 	= cmd.funPtr;
+			cmdhandler_list[i].moduleId = handler.moduleId;
+			cmdhandler_list[i].funPtr 	 = handler.funPtr;
 			return 0;
 		}
 	}
@@ -124,6 +128,8 @@ void cmdhandler_processNewData()
 	// read data size
 	circularBuffer_pop( &CBuffer, (uint8_t*)&dataSize, 2 );
 	inCmd.dataSize = dataSize;
+
+	// read data
 	if ( dataSize != 0 )
 	{
 		if ( circularBuffer_getSize(&CBuffer) >= dataSize )
@@ -138,9 +144,9 @@ void cmdhandler_processNewData()
 
 	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
 	{
-		if ( cmd_list[i].funPtr != NULL )
+		if ( cmdhandler_list[i].funPtr != NULL && cmdhandler_list[i].moduleId == inCmd.id.module )
 		{
-			cmd_list[i].funPtr( &inCmd );
+			cmdhandler_list[i].funPtr( &inCmd );
 		}
 	}
 
