@@ -16,6 +16,8 @@
 /*
  * Private defines.
  * */
+#define LED_MODULE_ID   0x01u
+
 #define CMD_LED_SET		0x01u
 #define CMD_LED_TOGGLE	0x02u
 /*
@@ -41,7 +43,7 @@
 void led_init()
 {
 	// register led commands with for the command handler to recognize.
-	tCmdhandler_registerCmd cmd_set = { .funPtr = led_cmd_handler };
+	tCmdhandler_moduleCmdHandler cmd_set = { .funPtr = led_cmd_handler };
 
 	cmdhandler_registerCmd( cmd_set );
 	return;
@@ -75,7 +77,11 @@ void led_cmd_handler( void *param )
 {
 	tCmdhandler_cmd cmd;
 	memcpy( &cmd, (uint8_t*)param, sizeof(tCmdhandler_cmd) );
-	switch( cmd.cmd )
+
+	if ( cmd.id.module != LED_MODULE_ID )
+		return;
+
+	switch( cmd.id.cmd )
 	{
 		case CMD_LED_SET:
 		{

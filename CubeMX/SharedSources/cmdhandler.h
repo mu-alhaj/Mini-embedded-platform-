@@ -26,12 +26,17 @@
 // command data type to connect command with a function.
 struct{
 	void (*funPtr)(void*);
-}typedef tCmdhandler_registerCmd;
+}typedef tCmdhandler_moduleCmdHandler;
+
+struct{
+	uint8_t module;
+	uint8_t cmd;
+} typedef tCmdhandler_cmdID;
 
 struct {
-	uint8_t 	cmd;
-	uint16_t 	dataSize;
-	uint8_t 	data[256];
+	tCmdhandler_cmdID 	id;
+	uint16_t 			dataSize;
+	uint8_t 			data[256];
 } typedef tCmdhandler_cmd;
 
 /*
@@ -55,7 +60,7 @@ void cmdhandler_init( UART_HandleTypeDef* huart );
  * 			param2 :
  * return : 0 if succeed.
  * */
-uint8_t cmdhandler_registerCmd( tCmdhandler_registerCmd cmd );
+uint8_t cmdhandler_registerCmd( tCmdhandler_moduleCmdHandler cmd );
 
 
 #endif /* CMDHANDLER_H_ */

@@ -44,7 +44,7 @@
 static uint8_t cbuff_data[CBUFF_DATA_SIZE];
 static tCircularBuffer CBuffer;
 static tCmdhandler_cmd inCmd;
-static tCmdhandler_registerCmd cmd_list[CMD_LIST_SIZE];
+static tCmdhandler_moduleCmdHandler cmd_list[CMD_LIST_SIZE];
 
 /*
  * Private function prototypes.
@@ -78,7 +78,7 @@ void cmdhandler_init( UART_HandleTypeDef* huart )
 	return;
 }
 
-uint8_t cmdhandler_registerCmd( tCmdhandler_registerCmd cmd )
+uint8_t cmdhandler_registerCmd( tCmdhandler_moduleCmdHandler cmd )
 {
 	for( uint8_t i = 0; i < CMD_LIST_SIZE; i += 1 )
 	{
@@ -104,7 +104,7 @@ void cmdhandler_processNewData()
 {
 	uint8_t oneByte = 0;
 	uint16_t dataSize = 0;
-	uint8_t cmd = 0;
+	uint16_t cmd = 0;
 	// find new command:
 	while( !circularBuffer_isEmepty(&CBuffer) && oneByte != (uint8_t)CMD_NEW )
 	{
@@ -118,11 +118,11 @@ void cmdhandler_processNewData()
 	}
 
 	// read command
-	circularBuffer_pop( &CBuffer, &cmd, 1 );
-	inCmd.cmd = cmd;
+	circularBuffer_pop( &CBuffer, (uint8_t*)&cmd, 2 );
+	memcpy( &inCmd.id, &cmd, 2 );
 
 	// read data size
-	circularBuffer_pop( &CBuffer, &dataSize, 2 );
+	circularBuffer_pop( &CBuffer, (uint8_t*)&dataSize, 2 );
 	inCmd.dataSize = dataSize;
 	if ( dataSize != 0 )
 	{

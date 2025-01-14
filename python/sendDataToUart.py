@@ -1,69 +1,68 @@
 import serial
 import struct
-# Set up the serial port
-ser = serial.Serial( port='COM4', baudrate=112500, timeout=1 )
-
-msg = "Hello flash\r\n"
-
-# new command ( 1 byte ) / command ( 1 byte ) / data size ( 2 bytes ) / data up to 252
 
 new_cmd     = 0xab
-led_set     = 0x01
-led_toggle  = 0x02
+# commands list
+id_led_set     = 0x0101
+id_led_toggle  = 0x0102
 
-struct_format = 'BBHB'
-                                        
-cmd_led_set     = ( new_cmd, led_set, 0x0001, 0x00 )
-cmd_led_toggle  = ( new_cmd, led_toggle, 0x0000, 0x00 )
+# new command ( 1 byte ) / command id ( 2 byte ) / data size ( 2 bytes ) / data up to 252
+class Command:
+    def __init__(self, id, size, data):
+        self.newCmd = 0xab
+        self.id     = id
+        self.size   = size
+        self.data   = data
 
-print("Start\n")
+    def pack(self):
+        # Pack the data into bytes
+        return struct.pack( f'< B H H {self.size}s', self.newCmd, self.id, self.size, self.data)
 
-def uart_send_data( data ) :
+
+
+
+
+def uart_send_cmd( ser, cmd ):
     print("Send data\n")
     if ser.is_open:
         print("port is open\n")
-        data_bytes = bytes( data, 'utf-8' )
         print("write\n")
-        ser.write(data_bytes)
-        print(f"data sent : {data} \n")
+        ser.write(cmd)
+        print(f"data sent : {cmd} \n")
     else:
         print("serial port is not open\n")
 
-def uart_send_hex( data_hex ):
-    print("Send data\n")
-    if ser.is_open:
-        print("port is open\n")
-        data_bytes = data_hex.to_bytes( 5, byteorder = 'big')
-        print("write\n")
-        ser.write(data_bytes)
-        print(f"data sent : {data_bytes} \n")
-    else:
-        print("serial port is not open\n")
 
-def uart_send_cmd( cmd ):
-    print("Send data\n")
-    if ser.is_open:
-        print("port is open\n")
-        data_bytes = struct.pack(struct_format, *cmd)
-        print("write\n")
-        ser.write(data_bytes)
-        print(f"data sent : {data_bytes} \n")
+def set_led( set ):
+    if( set ):
+        data = bytearray([1])
+        cmd_set_led = Command( id_led_set,1, data )
+        uart_send_cmd( ser, cmd_set_led.pack() )
     else:
-        print("serial port is not open\n")
-
+        data = bytearray([0])
+        cmd_set_led = Command( id_led_set,1, data )
+        uart_send_cmd( ser, cmd_set_led.pack() )
 #uart_send_data(msg)
-uart_send_cmd( cmd_led_toggle )
 
-ser.close()
-exit(0)
 
-done = False
-while True:
-        if ser.in_waiting > 0:
-            data = ser.read(ser.in_waiting)
-            print(f"Received: {data.decode('utf-8')}")
-            done = True
-        if done :
-            break
 
+
+
+
+
+def main ():
+
+    
+    print("Start\n")
+    # Set up the serial port
+    global ser
+    ser = serial.Serial( port='COM4', baudrate=112500, timeout=1 )
+
+    set_led(False)
+    
+    ser.close()
+
+    exit(0)
+
+main()
 
