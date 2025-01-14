@@ -16,6 +16,11 @@
 
 // Includes
 #include "flash.h"
+#include "cmdhandler.h"
+#include "moduleId.h"
+#include <string.h>
+
+
 #include "stm32f3xx_hal.h"
 #include "stm32f3xx_hal_flash.h"
 #include "stm32f3xx_hal_flash_ex.h"	// to get page size
@@ -26,13 +31,30 @@
 #define ONE_WORD 	4
 #define DOUBLE_WORD 8
 
+// command list
+#define CMD_FLASH_WRITE				((unsigned char)0x01u)
+#define CMD_FLASH_ERASE_PAGE		((unsigned char)0x02u)
+
 // private data types.
 
 // private data.
 
 // private functions prototypes
+void flash_cmd_handler( tCmdhandler_cmd inCmd );
 
 // public function defines:
+
+/************************************
+ * Function
+ * **********************************
+ */
+void flash_init()
+{
+	// register led commands with for the command handler to recognize.
+	tCmdhandler_moduleCmdHandler cmd_handler = { .moduleId = MODULE_ID_FLASH, .funPtr = flash_cmd_handler };
+
+	cmdhandler_registerModuleCmdHandler( cmd_handler );
+}
 
 /************************************
  * Function
@@ -52,9 +74,6 @@ uint8_t flash_write( uint32_t Address, uint8_t* pData, uint32_t size )
 	{
 		return 1;
 	}
-
-	// erase flash area before writing to it.
-	flash_erasePage( Address );
 
 	HAL_FLASH_Unlock();
 	uint32_t remaining_bytes = size;
@@ -165,3 +184,49 @@ uint8_t flash_erasePage( uint32_t Address )
 }
 
 // private function defines:
+
+/************************************
+ * Function
+ * **********************************
+ */
+void flash_cmd_handler( tCmdhandler_cmd inCmd )
+{
+	if( inCmd.id.module !=  MODULE_ID_FLASH )
+		return;
+
+	tCmdhandler_cmd cmd;
+	memcpy( &cmd, (uint8_t*)&inCmd, sizeof(tCmdhandler_cmd) );
+
+	switch( cmd.id.cmd )
+	{
+		case CMD_FLASH_WRITE:
+		{
+			// extract parameter from data.
+			// cmd.data : address 4 bytes + data cmd.dataSize - 4
+			uint32_t address = 0;
+			memcpy( &address, &cmd.data[0], 4);
+			uint8_t* pData 	 = &cmd.data[4];
+
+			// call write
+			flash_write(address, pData, cmd.dataSize - 4 );
+
+			break;
+		}
+		case CMD_FLASH_ERASE_PAGE:
+		{
+			uint32_t address = 0;
+			memcpy( &address, &cmd.data[0], 4 );
+			flash_erasePage( address );
+			break;
+		}
+		default:
+			break;
+	}
+
+	return;
+}
+
+
+
+
+

@@ -14,11 +14,10 @@
 #include <moduleId.h>
 #include "led.h"
 #include "cmdhandler.h"
+#include <string.h>
 /*
  * Private defines.
  * */
-
-
 #define CMD_LED_SET		((unsigned char)0x01u)
 #define CMD_LED_TOGGLE	((unsigned char)0x02u)
 /*
@@ -33,7 +32,7 @@
 /*
  * Private function prototypes.
  * */
-
+void led_cmd_handler( tCmdhandler_cmd inCmd );
 /*
  * Public function definitions.
  * */
@@ -54,7 +53,6 @@ void led_init()
  * ********************************************
  * 					function
  * ********************************************/
-static uint8_t counter = 0;
 void led_toggle( GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin )
 {
 	HAL_GPIO_TogglePin( GPIOx, GPIO_Pin );
@@ -74,13 +72,14 @@ void led_run()
  * ********************************************
  * 					function
  * ********************************************/
-void led_cmd_handler( void *param )
+void led_cmd_handler( tCmdhandler_cmd inCmd )
 {
-	tCmdhandler_cmd cmd;
-	memcpy( &cmd, (uint8_t*)param, sizeof(tCmdhandler_cmd) );
-
-	if ( cmd.id.module != MODULE_ID_LED )
+	// make sure the command is for us.
+	if ( inCmd.id.module != MODULE_ID_LED )
 		return;
+
+	tCmdhandler_cmd cmd;
+	memcpy( &cmd, (uint8_t*)&inCmd, sizeof(tCmdhandler_cmd) );
 
 	switch( cmd.id.cmd )
 	{

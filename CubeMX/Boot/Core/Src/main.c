@@ -97,8 +97,12 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  // initiate command handler first to be ready to register other modules.
   cmdhandler_init( &huart2 );
+
   led_init();
+  flash_init();
+
 
 
   scheduler_init();

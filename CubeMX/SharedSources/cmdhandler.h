@@ -23,12 +23,6 @@
 /*
  * Public data types.
  * */
-// command data type to connect command with a function.
-struct{
-	uint8_t moduleId;
-	void (*funPtr)(void*);
-}typedef tCmdhandler_moduleCmdHandler;
-
 struct{
 	uint8_t module;
 	uint8_t cmd;
@@ -39,6 +33,16 @@ struct {
 	uint16_t 			dataSize;
 	uint8_t 			data[256];
 } typedef tCmdhandler_cmd;
+
+// module command handler, used by other modules to connect a module id by a function.
+struct{
+	uint8_t moduleId;
+	void (*funPtr)(tCmdhandler_cmd);
+}typedef tCmdhandler_moduleCmdHandler;
+
+
+
+
 
 /*
  * Public function prototypes.

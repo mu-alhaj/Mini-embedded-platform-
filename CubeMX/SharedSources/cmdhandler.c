@@ -106,9 +106,9 @@ uint8_t cmdhandler_registerModuleCmdHandler( tCmdhandler_moduleCmdHandler handle
  * ********************************************/
 void cmdhandler_processNewData()
 {
-	uint8_t oneByte = 0;
-	uint16_t dataSize = 0;
-	uint16_t cmd = 0;
+	uint8_t oneByte 	= 0;
+	uint16_t dataSize 	= 0;
+	uint8_t cmd[2] 		= {0};
 	// find new command:
 	while( !circularBuffer_isEmepty(&CBuffer) && oneByte != (uint8_t)CMD_NEW )
 	{
@@ -122,8 +122,9 @@ void cmdhandler_processNewData()
 	}
 
 	// read command
-	circularBuffer_pop( &CBuffer, (uint8_t*)&cmd, 2 );
-	memcpy( &inCmd.id, &cmd, 2 );
+	circularBuffer_pop( &CBuffer, cmd, 2 );
+	inCmd.id.module = cmd[1];
+	inCmd.id.cmd 	= cmd[0];
 
 	// read data size
 	circularBuffer_pop( &CBuffer, (uint8_t*)&dataSize, 2 );
@@ -146,7 +147,7 @@ void cmdhandler_processNewData()
 	{
 		if ( cmdhandler_list[i].funPtr != NULL && cmdhandler_list[i].moduleId == inCmd.id.module )
 		{
-			cmdhandler_list[i].funPtr( &inCmd );
+			cmdhandler_list[i].funPtr( inCmd );
 		}
 	}
 

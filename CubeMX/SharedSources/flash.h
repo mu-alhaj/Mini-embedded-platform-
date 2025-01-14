@@ -20,6 +20,8 @@
 
 // Public function prototypes.
 
+void flash_init();
+
 /*
  * write data to flash.
  * this function can only handle uint16 aligned data.
