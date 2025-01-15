@@ -26,20 +26,39 @@ struct
 
 struct
 {
-	tSchedulerTask taskList[SCHEDULER_MAX_NR_TASKS];
+	uint8_t head;
+	uint8_t tail;
+	uint8_t full;
+	uint8_t empty;
+	uint8_t size;
 	tSchedulerRunOnceTask runOnceTaskList[SCHEDULER_MAX_NR_RUN_ONCE_TASKS];
+}typedef tSchedulerRunOnceQueue ;
+
+struct
+{
 	uint8_t nrOfTasks;
 	uint8_t nrOfRunOnceTasks;
+	tSchedulerTask taskList[SCHEDULER_MAX_NR_TASKS];
+	tSchedulerRunOnceQueue RunOnceQueue;
 }typedef tSchedulerVars;
 
 
 static tSchedulerVars schedulerVars;
 
+/*
+ * Private function prototypes.
+ * */
+// only scheduler module should be able to pop tasks.
+uint8_t scheduler_popTask( void (**pTask)(void) );
 
 /*
- * function
+ * Public function definitions.
  * */
 
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
 void scheduler_init( void )
 {
 	schedulerVars.nrOfTasks = 0;
@@ -49,11 +68,23 @@ void scheduler_init( void )
 		schedulerVars.taskList[i].delay = 0;
 		schedulerVars.taskList[i].lastExecutionTime = 0;
 	}
+
+	// init run once queue.
+	schedulerVars.RunOnceQueue.head  = 0;
+	schedulerVars.RunOnceQueue.tail  = 0;
+	schedulerVars.RunOnceQueue.full  = 0;
+	schedulerVars.RunOnceQueue.empty = 1;
+	schedulerVars.RunOnceQueue.size  = 0;
+	for ( uint8_t i = 0; i < SCHEDULER_MAX_NR_RUN_ONCE_TASKS; i += 1 )
+	{
+		schedulerVars.RunOnceQueue.runOnceTaskList[i].pTask = NULL;
+	}
 }
 
 /*
- * function
- * */
+ * ********************************************
+ * 					function
+ * ********************************************/
 uint8_t scheduler_addTask( uint32_t delay, void (*pTask)(void) )
 {
 	for ( uint8_t i = 0; i < SCHEDULER_MAX_NR_TASKS; i += 1 )
@@ -71,42 +102,57 @@ uint8_t scheduler_addTask( uint32_t delay, void (*pTask)(void) )
 	return 0;
 }
 
-uint8_t scheduler_runTask( void (*pTask)(void) )
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
+uint8_t scheduler_pushTask( void (*pTask)(void) )
 {
-	for ( uint8_t i = 0; i < SCHEDULER_MAX_NR_RUN_ONCE_TASKS; i += 1 )
+	// is queue full?
+	if ( schedulerVars.RunOnceQueue.full )
+		return 1;
+
+	// if not, add task.
+	schedulerVars.RunOnceQueue.runOnceTaskList[ schedulerVars.RunOnceQueue.tail ].pTask = pTask;
+
+	// increase tail index and size.
+	schedulerVars.RunOnceQueue.tail = ( schedulerVars.RunOnceQueue.tail + 1 ) % SCHEDULER_MAX_NR_RUN_ONCE_TASKS;
+	schedulerVars.RunOnceQueue.size += 1;
+
+	// if queue was empty, it is not now.
+	if ( schedulerVars.RunOnceQueue.empty )
 	{
-		// search for available task.
-		if ( schedulerVars.runOnceTaskList[i].pTask == NULL )
-		{
-			schedulerVars.runOnceTaskList[i].pTask = pTask;
-			schedulerVars.nrOfRunOnceTasks += 1;
-			return 1;
-		}
+		schedulerVars.RunOnceQueue.empty = 0;
 	}
-	// no available task was found
+
+	// check if full and update full.
+	if( schedulerVars.RunOnceQueue.size == SCHEDULER_MAX_NR_RUN_ONCE_TASKS )
+	{
+		schedulerVars.RunOnceQueue.full = 1;
+	}
+
 	return 0;
 }
 
 /*
- * function
- * */
+ * ********************************************
+ * 					function
+ * ********************************************/
 void scheduler_run( void )
 {
 	uint32_t now = 0;
 	while( 1 )
 	{
 		// run once tasks:
-		for ( uint8_t i = 0; i < SCHEDULER_MAX_NR_RUN_ONCE_TASKS; i += 1 )
+		while ( !schedulerVars.RunOnceQueue.empty )
 		{
-			// execute task
-			if ( schedulerVars.runOnceTaskList[i].pTask != NULL )
-			{
-				schedulerVars.runOnceTaskList[i].pTask();
-				// remove task from list:
-				schedulerVars.runOnceTaskList[i].pTask = NULL;
-				schedulerVars.nrOfRunOnceTasks -= 1;
-			}
+			void (*pRunOnce)(void) = NULL;
 
+			if ( 0 == scheduler_popTask( &pRunOnce ) )
+				if ( pRunOnce != NULL )
+					{
+						pRunOnce();
+					}
 		}
 
 		// repeated tasks:
@@ -123,3 +169,40 @@ void scheduler_run( void )
 	}
 
 }
+
+/*
+ * Private function definitions.
+ * */
+
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
+uint8_t scheduler_popTask( void (**pTask)(void) )
+{
+	// is queue empty?
+	if ( schedulerVars.RunOnceQueue.empty )
+		return 1;
+
+	// pick that oldest task.
+	*pTask = schedulerVars.RunOnceQueue.runOnceTaskList[ schedulerVars.RunOnceQueue.head ].pTask;
+
+	// update head index
+	schedulerVars.RunOnceQueue.head = ( schedulerVars.RunOnceQueue.head + 1 ) % SCHEDULER_MAX_NR_RUN_ONCE_TASKS;
+	schedulerVars.RunOnceQueue.size -= 1;
+
+	// if it was full, it is not now
+	if ( schedulerVars.RunOnceQueue.full == 1 )
+	{
+		schedulerVars.RunOnceQueue.full = 0;
+	}
+
+	// check if empty
+	if ( schedulerVars.RunOnceQueue.size == 0 )
+	{
+		schedulerVars.RunOnceQueue.empty = 1;
+	}
+	return 0;
+}
+
+

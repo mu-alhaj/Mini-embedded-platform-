@@ -29,6 +29,9 @@
 #include "flash.h"
 #include "scheduler.h"
 #include "serial.h"
+#include "led.h"
+#include "cmdhandler.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,6 +64,22 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+void excute ()
+{
+	scheduler_pushTask( Iprint );
+}
+
+int _write(int file, char *ptr, int len)
+{
+  (void)file;
+  int DataIdx;
+
+  for (DataIdx = 0; DataIdx < len; DataIdx++)
+  {
+    ITM_SendChar(*ptr++);
+  }
+  return len;
+}
 
 /* USER CODE END 0 */
 
@@ -106,6 +125,7 @@ int main(void)
 
 
   scheduler_init();
+  //scheduler_addTask(500, excute);
   scheduler_run();
 
   /* USER CODE END 2 */

@@ -90,7 +90,7 @@ void pushRxToCBuff()
 	circularBuffer_push( serialVars.pCBuff, serialVars.pRxBuff, serialVars.receivedSize );
 
 	// notify cmdhandler about the new data.
-	scheduler_runTask( serialVars.pCmdHandlerCB );
+	scheduler_pushTask( serialVars.pCmdHandlerCB );
 	return;
 }
 
@@ -107,7 +107,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 		serialVars.receivedSize = Size;
 
 		// move received data from rxBuff to cBuffer out side of the interrupt context.
-		scheduler_runTask( pushRxToCBuff );
+		scheduler_pushTask( pushRxToCBuff );
 	}
 	return;
 }

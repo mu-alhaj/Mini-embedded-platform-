@@ -41,7 +41,7 @@ uint8_t scheduler_addTask( uint32_t delay, void (*pTask)(void) );
  * 		pTask : the task to be executed.
  * returns true if added successfully.
  * */
-uint8_t scheduler_runTask( void (*pTask)(void) );
+uint8_t scheduler_pushTask( void (*pTask)(void) );
 
 uint8_t scheduler_addTimer();
 

@@ -2,4 +2,4 @@ C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:50:6:serial_uart_in
 C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:62:9:serial_uart_receiveToIdle	1
 C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:75:6:serial_uart_registerCB	1
 C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:88:6:pushRxToCBuff	1
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:101:6:HAL_UARTEx_RxEventCallback	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:102:6:HAL_UARTEx_RxEventCallback	2

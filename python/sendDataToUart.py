@@ -103,9 +103,9 @@ def main ():
     while( counter < 10 ):
 
         led_toggle()
-        time.sleep(0.05)
+        time.sleep(0.1)
         flash_write( address,f"Hello{index}" )
-        time.sleep(0.05)
+        time.sleep(0.1)
         address += 6
 
         index = (index + 1 ) % 10

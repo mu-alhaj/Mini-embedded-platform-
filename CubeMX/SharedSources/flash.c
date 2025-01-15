@@ -75,6 +75,9 @@ uint8_t flash_write( uint32_t Address, uint8_t* pData, uint32_t size )
 		return 1;
 	}
 
+	// Disable interrupts
+	__disable_irq();
+
 	HAL_FLASH_Unlock();
 	uint32_t remaining_bytes = size;
 	HAL_StatusTypeDef status = HAL_ERROR;
@@ -116,6 +119,8 @@ uint8_t flash_write( uint32_t Address, uint8_t* pData, uint32_t size )
 	}
 
 	HAL_FLASH_Lock();
+	// Re-enable interrupts
+	__enable_irq();
 
 	return 0;
 }
@@ -163,10 +168,8 @@ uint8_t flash_erasePage( uint32_t Address )
  * Function
  * **********************************
  */
-static uint8_t flash_counter = 0;
 void flash_cmd_handler( tCmdhandler_cmd inCmd )
 {
-	flash_counter += 1;
 	if( inCmd.id.module !=  MODULE_ID_FLASH )
 		return;
 
