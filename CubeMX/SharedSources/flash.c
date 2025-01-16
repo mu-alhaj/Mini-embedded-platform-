@@ -139,12 +139,17 @@ uint8_t flash_read(uint32_t address, uint8_t* pData, uint32_t size)
  * Function
  * **********************************
  */
-uint8_t flash_erasePage( uint32_t Address )
+uint8_t flash_erasePage( uint32_t Address, uint32_t nrPages )
 {
+	// make sure we are not going to erase ourself
+	if ( Address < APP_START_ADD )
+	{
+		printf( "trying to erase boot area 0x:%08x", Address );
+		return 1;
+	}
+
 	// find page start address.
 	uint32_t pageStartAddress = ( Address / FLASH_PAGE_SIZE ) * FLASH_PAGE_SIZE;
-	uint8_t nrPages = 1;
-
 
 	FLASH_EraseInitTypeDef eraseInit;
 	eraseInit.NbPages 		= nrPages;
@@ -195,7 +200,7 @@ void flash_cmd_handler( tCmdhandler_cmd inCmd )
 		{
 			uint32_t address = 0;
 			memcpy( &address, &cmd.data[0], 4 );
-			flash_erasePage( address );
+			flash_erasePage( address, 1 );
 			break;
 		}
 		default:

@@ -26,6 +26,7 @@
 "./SharedSources/circularBuffer.o"
 "./SharedSources/cmdhandler.o"
 "./SharedSources/flash.o"
+"./SharedSources/fwUpgrade.o"
 "./SharedSources/led.o"
 "./SharedSources/scheduler.o"
 "./SharedSources/serial.o"

@@ -16,7 +16,7 @@
 /*
  * Private defines.
  * */
-#define RX_BUF_SIZE	128
+#define RX_BUF_SIZE	256
 /*
  * Private data types.
  * */

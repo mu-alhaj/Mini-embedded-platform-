@@ -50,9 +50,10 @@ uint8_t flash_read(uint32_t Address, uint8_t* pData, uint32_t size);
  * erase specific flash page that contains the address required.
  * in parameters:
  * - Address: Address in flash to erase.
+ * - nrPages: number of pages to be erased.
  * return 0 if succeed, 1 otherwise.
  * */
 
-uint8_t flash_erasePage(uint32_t Address);
+uint8_t flash_erasePage(uint32_t Address, uint32_t nrPages);
 
 #endif /* INC_FLASH_H_ */

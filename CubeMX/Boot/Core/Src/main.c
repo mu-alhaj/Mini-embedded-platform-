@@ -66,7 +66,7 @@ void SystemClock_Config(void);
 
 void excute ()
 {
-	scheduler_pushTask( Iprint );
+	return;
 }
 
 int _write(int file, char *ptr, int len)
@@ -121,6 +121,7 @@ int main(void)
 
   led_init();
   flash_init();
+  fwUpgrade_init();
 
 
 
