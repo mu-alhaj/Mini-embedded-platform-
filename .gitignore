@@ -53,4 +53,3 @@ dkms.conf
 
 # STM32CubeIDE
 CubeMX/.metadata/
-*.ld
