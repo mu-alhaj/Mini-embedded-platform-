@@ -51,6 +51,10 @@ void fwUpgrade_init()
 	return;
 }
 
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
 void fwUpgrade_eraseApp()
 {
 	uint32_t address 	= APP_START_ADD;
@@ -59,6 +63,34 @@ void fwUpgrade_eraseApp()
 
 	flash_erasePage( address, nrPages );
 	return;
+}
+
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
+void fwUpgrade_jumpToApp()
+{
+    // Function pointer to the application reset handler
+    void (*app_reset_handler)(void);
+
+    // De-initialize all peripherals, disable all interrupts
+    HAL_DeInit();
+
+    // Disable SysTick interrupt
+    SysTick->CTRL = 0;
+
+    // Set the vector table base address to the application address
+    SCB->VTOR = APP_START_ADD;
+
+    // Get the application reset handler address from the application's vector table
+    app_reset_handler = (void (*)(void))(*((uint32_t *)(APP_START_ADD + 4)));
+
+    // Set the main stack pointer to the application's stack pointer
+    __set_MSP(*(uint32_t *)APP_START_ADD);
+
+    // Jump to the application reset handler
+    app_reset_handler();
 }
 
 /*

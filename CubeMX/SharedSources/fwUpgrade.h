@@ -51,4 +51,13 @@ void fwUpgrade_eraseApp();
  * */
 void fwUpgrade_programApp();
 
+/*
+ * desc   :
+ * param  :
+ * 			param1 :
+ * 			param2 :
+ * return : 0 if succeed.
+ * */
+void fwUpgrade_jumpToApp();
+
 #endif /* FWUPGRADE_H_ */
