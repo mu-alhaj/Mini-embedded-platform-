@@ -16,6 +16,8 @@
 #define APP_START_ADD  0x8040000	// 128 pages from base/boot start
 #define FLASH_END_ADD  0x8080000	// 128 pages from app start
 
+#define APP_BOOT_FLAG_ADD ( APP_START_ADD - FLASH_PAGE_SIZE )	// reserve the last 32 bytes for the flag.
+
 // Public data types.
 
 // Public function prototypes.

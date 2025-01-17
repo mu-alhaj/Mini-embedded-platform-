@@ -115,7 +115,7 @@ def read_hex_file(file_path):
 def main ():
 
 
-    hex_file_path = 'c:/Users/wxj509/Data/MicroRepo/python/Boot.hex'
+    hex_file_path = 'c:/Users/wxj509/Data/MicroRepo/python/App.hex'
     application_start_address = 0x8040000
     add = application_start_address
     chunk_size = 64

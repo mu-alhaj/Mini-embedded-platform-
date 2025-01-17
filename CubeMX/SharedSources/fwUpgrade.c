@@ -23,7 +23,13 @@
 /*
  * Private data types.
  * */
+typedef void (application_t)(void);
 
+typedef struct
+{
+    uint32_t		stack_addr;     // Stack Pointer
+    application_t*	func_p;        // Program Counter
+} JumpStruct;
 
 /*
  * Private data.
@@ -71,26 +77,41 @@ void fwUpgrade_eraseApp()
  * ********************************************/
 void fwUpgrade_jumpToApp()
 {
-    // Function pointer to the application reset handler
-    void (*app_reset_handler)(void);
+	// Start address of your application
+    uint32_t app_start_address = APP_START_ADD;
 
-    // De-initialize all peripherals, disable all interrupts
-    HAL_DeInit();
+    // Reset vector
+    uint32_t reset_handler = *(volatile uint32_t*)(app_start_address + 4);
 
-    // Disable SysTick interrupt
-    SysTick->CTRL = 0;
+    // Stack pointer
+    uint32_t stack_pointer = (uint32_t) *((__IO uint32_t*) app_start_address );
 
-    // Set the vector table base address to the application address
-    SCB->VTOR = APP_START_ADD;
+    // Set application function.
+    void (*app_reset_handler)(void) = (void (*)(void))( reset_handler );
 
-    // Get the application reset handler address from the application's vector table
-    app_reset_handler = (void (*)(void))(*((uint32_t *)(APP_START_ADD + 4)));
 
-    // Set the main stack pointer to the application's stack pointer
-    __set_MSP(*(uint32_t *)APP_START_ADD);
+	// Set the vector table base address to the application address
 
-    // Jump to the application reset handler
+    // no need to set VTOR since USER_VECT_TAB_ADDRESS is defined in applications Gcc compiler/preprocessor
+    // so it will be updated on the run.
+	//SCB->VTOR = stack_pointer;
+
+    // Set the stack pointer to the application's stack pointer
+    __set_MSP(stack_pointer);
+
+    // Call the application
     app_reset_handler();
+}
+
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
+void fwUpgrade_setFlag( uint32_t flag )
+{
+	uint32_t set_flag = (uint32_t) flag;
+	flash_erasePage( (uint32_t) APP_BOOT_FLAG_ADD, 1);
+	flash_write( APP_BOOT_FLAG_ADD, &set_flag, 4 );
 }
 
 /*

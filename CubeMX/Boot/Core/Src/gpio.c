@@ -116,5 +116,50 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
+void MX_GPIO_DeInit(void)
+{
+    // Deinitialize GPIO pin : B1_Pin
+    HAL_GPIO_DeInit(B1_GPIO_Port, B1_Pin);
 
+    // Deinitialize GPIO pins : PC0 PC1 PC2 PC3
+    //                          PC4 PC5 PC6 PC7
+    //                          PC8 PC9 PC10 PC11
+    //                          PC12
+    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3 |
+                           GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 |
+                           GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_11 |
+                           GPIO_PIN_12);
+
+    // Deinitialize GPIO pins : PA0 PA1 PA4 PA6
+    //                          PA7 PA8 PA9 PA10
+    //                          PA11 PA12 PA15
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_4 | GPIO_PIN_6 |
+                           GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 |
+                           GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_15);
+
+    // Deinitialize GPIO pin : LD2_Pin
+    HAL_GPIO_DeInit(LD2_GPIO_Port, LD2_Pin);
+
+    // Deinitialize GPIO pins : PB0 PB1 PB2 PB10
+    //                          PB11 PB12 PB13 PB14
+    //                          PB15 PB4 PB5 PB6
+    //                          PB7 PB8 PB9
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_10 |
+                           GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_13 | GPIO_PIN_14 |
+                           GPIO_PIN_15 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 |
+                           GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9);
+
+    // Deinitialize GPIO pin : PD2
+    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_2);
+
+    // Disable GPIO Ports Clock
+    __HAL_RCC_GPIOC_CLK_DISABLE();
+    __HAL_RCC_GPIOF_CLK_DISABLE();
+    __HAL_RCC_GPIOA_CLK_DISABLE();
+    __HAL_RCC_GPIOB_CLK_DISABLE();
+    __HAL_RCC_GPIOD_CLK_DISABLE();
+
+    // Disable EXTI interrupt
+    HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+}
 /* USER CODE END 2 */

@@ -50,6 +50,12 @@ void MX_DMA_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
+void MX_DMA_DeInit(void) {
+    // Disable the DMA interrupt
+    HAL_NVIC_DisableIRQ(DMA1_Channel6_IRQn);
 
+    // Disable the DMA controller clock
+    __HAL_RCC_DMA1_CLK_DISABLE();
+}
 /* USER CODE END 2 */
 

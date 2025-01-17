@@ -63,9 +63,9 @@ void flash_init()
 uint8_t flash_write( uint32_t Address, uint8_t* pData, uint32_t size )
 {
 	// check if valid flash address.
-	if ( Address < APP_START_ADD || Address > FLASH_END_ADD )
+	if ( Address < APP_BOOT_FLAG_ADD || Address > FLASH_END_ADD )
 	{
-		// return if address is not in application flash area.
+		// return if address is within the boot area.
 		return 1;
 	}
 
@@ -142,7 +142,7 @@ uint8_t flash_read(uint32_t address, uint8_t* pData, uint32_t size)
 uint8_t flash_erasePage( uint32_t Address, uint32_t nrPages )
 {
 	// make sure we are not going to erase ourself
-	if ( Address < APP_START_ADD )
+	if ( Address < APP_BOOT_FLAG_ADD )
 	{
 		printf( "trying to erase boot area 0x:%08x", Address );
 		return 1;

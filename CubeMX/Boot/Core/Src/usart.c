@@ -138,5 +138,14 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void MX_USART2_UART_DeInit(void) {
+    // Deinitialize the UART peripheral
+    HAL_UART_DeInit(&huart2);
 
+    // Disable the USART2 clock
+    __HAL_RCC_USART2_CLK_DISABLE();
+
+    // Deinitialize the GPIO pins used for USART2
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_2 | GPIO_PIN_3);
+}
 /* USER CODE END 1 */

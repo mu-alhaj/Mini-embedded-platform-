@@ -31,6 +31,7 @@
 #include "serial.h"
 #include "led.h"
 #include "cmdhandler.h"
+#include "fwUpgrade.h"
 #include <stdio.h>
 /* USER CODE END Includes */
 
@@ -58,16 +59,11 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+void SystemClock_DeInit(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-void excute ()
-{
-	return;
-}
 
 int _write(int file, char *ptr, int len)
 {
@@ -81,11 +77,28 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 
+void deInitBoot()
+{
+	MX_USART2_UART_DeInit();
+	MX_DMA_DeInit();
+	MX_GPIO_DeInit();
+	SystemClock_DeInit();
+	HAL_DeInit();
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if ( GPIO_Pin == B1_Pin )
 	{
-		led_run();
+		/*
+		 *  When jumping to application directly from here, interrupts in application do not work.
+		 *  This might be due to incorrect de-initialization of peripherals.
+		 *  A work around can be to save a flag in flash that tells us it time to jump, perform a
+		 *  system restart and jump to application first in main before initializing any peripherals.
+		 * */
+		fwUpgrade_setFlag( GO_APP );
+		NVIC_SystemReset();
+
 	}
 }
 
@@ -99,6 +112,16 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	uint32_t flag = 0;
+	flash_read( APP_BOOT_FLAG_ADD, &flag, 4 );
+	if( flag == GO_APP )
+	{
+		// invalidate application flag to stay in boot next time.
+		fwUpgrade_setFlag( GO_BOOT );
+
+		// jump.
+		fwUpgrade_jumpToApp();
+	}
 
   /* USER CODE END 1 */
 
@@ -134,7 +157,7 @@ int main(void)
 
 
   scheduler_init();
-  //scheduler_addTask(500, excute);
+  scheduler_addTask( 50, led_run );
   scheduler_run();
 
   /* USER CODE END 2 */
@@ -197,7 +220,47 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void SystemClock_DeInit(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
+  /* Reset the RCC configuration to default */
+  HAL_RCC_DeInit();
+
+  /* Reconfigure the system clock as required by your application */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+	Error_Handler();
+  }
+
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+								|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+	Error_Handler();
+  }
+
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2;
+  PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+  {
+	Error_Handler();
+  }
+}
 /* USER CODE END 4 */
 
 /**
