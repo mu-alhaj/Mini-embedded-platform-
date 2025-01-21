@@ -187,6 +187,7 @@ def update_app():
     binary_data = binary_from_hexFile( hex_file_path )
 
     # Calculate CRC checksum for the whole application
+    #TODO : try to send the checksum before programming the application and verifiy it afterwards and before jumping to app.
     crc_checksum = calculate_crc(binary_data)
     print(f"CRC Checksum: {crc_checksum:#010x}")
     size = len( binary_data )
@@ -219,7 +220,7 @@ def update_app():
         else:
             chunk = binary_data[i:]
 
-        # what we are tring to send:
+        # what we are trying to send:
         print( f"chunk index: {index}" )
         hex_chunck = ' '.join( f'{byte:02x}' for byte in chunk )
         print(f"hex_chunck of size {len(chunk)}: \n {hex_chunck}")
