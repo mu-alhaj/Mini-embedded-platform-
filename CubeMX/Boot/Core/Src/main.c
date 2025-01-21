@@ -102,6 +102,18 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	}
 }
 
+// verify application
+uint8_t verify_app()
+{
+	uint8_t *data = (uint8_t*) APP_START_ADD;
+	uint32_t crc = calculate_crc( data, 16131 );
+
+	if ( crc == 0xffbd47d9 )
+		return 1;
+	else
+		return 0;
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -111,6 +123,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 int main(void)
 {
 
+	printf( "Start");
   /* USER CODE BEGIN 1 */
 	uint32_t flag = 0;
 	flash_read( APP_BOOT_FLAG_ADD, &flag, 4 );
@@ -122,6 +135,11 @@ int main(void)
 		// jump.
 		fwUpgrade_jumpToApp();
 	}
+
+
+	verify_app();
+
+
 
   /* USER CODE END 1 */
 

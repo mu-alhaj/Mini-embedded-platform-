@@ -73,11 +73,25 @@ void JumpToBoot(void)
     app_reset_handler();  // Call the application
 }
 
+uint8_t toggle 	= 1;
+uint32_t stamp 	= 0;
+uint8_t size 	= 10;
+uint32_t delay_arr[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
+uint32_t delay = 500;
+uint8_t i = 0;
+
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if ( GPIO_Pin == B1_Pin )
 	{
-		JumpToBoot();
+		if ( HAL_GetTick() - stamp > 1000 )
+		{
+			stamp = HAL_GetTick();
+			//toggle = toggle? 0:1;
+			delay = delay_arr[i];
+			i = ( i + 1 ) % size;
+		}
 	}
 }
 /* USER CODE END 0 */
@@ -122,8 +136,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_TogglePin( LD2_GPIO_Port, LD2_Pin );
-	  HAL_Delay(500);
+	  if ( toggle )
+	  {
+		  HAL_GPIO_TogglePin( LD2_GPIO_Port, LD2_Pin );
+		  HAL_Delay(delay);
+	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

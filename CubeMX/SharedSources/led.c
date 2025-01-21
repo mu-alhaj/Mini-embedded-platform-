@@ -88,15 +88,12 @@ void led_cmd_handler( tCmdhandler_cmd inCmd )
 	if ( inCmd.id.module != MODULE_ID_LED )
 		return;
 
-	tCmdhandler_cmd cmd;
-	memcpy( &cmd, (uint8_t*)&inCmd, sizeof(tCmdhandler_cmd) );
-
-	switch( cmd.id.cmd )
+	switch( inCmd.id.cmd )
 	{
 		case CMD_LED_SET:
 		{
 			uint8_t set = 0;// (uint8_t)param;
-			memcpy(&set, &cmd.data, cmd.dataSize );
+			memcpy(&set, &inCmd.pData, inCmd.dataSize );
 			HAL_GPIO_WritePin( LD2_GPIO_Port, LD2_Pin, set);
 			break;
 		}

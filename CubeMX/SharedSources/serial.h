@@ -12,8 +12,8 @@
 /*
  * Includes
  * */
+#include "cmdqueue.h"
 #include "usart.h"
-#include "circularBuffer.h"
 
 /*
  * Public defines
@@ -34,7 +34,7 @@
  * 			param2 :
  * return : 0 if succeed.
  * */
-void serial_uart_init(  UART_HandleTypeDef *huart, tCircularBuffer* pCBuff );
+void serial_uart_init(  UART_HandleTypeDef *huart, tCmdqueue* cmdq );
 
 /*
  * desc   :	set up serial uart.
@@ -53,5 +53,7 @@ uint8_t serial_uart_receiveToIdle( );
  * return : 0 if succeed.
  * */
 void serial_uart_registerCB( void (*pCB)(void) );
+
+uint32_t calculate_crc(uint8_t *data, uint32_t length);
 
 #endif /* SERIAL_H_ */

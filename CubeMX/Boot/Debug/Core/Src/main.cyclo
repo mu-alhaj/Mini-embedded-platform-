@@ -3,7 +3,8 @@
 ../Core/Src/main.c:68:5:_write	2
 ../Core/Src/main.c:80:6:deInitBoot	1
 ../Core/Src/main.c:89:6:HAL_GPIO_EXTI_Callback	1
-../Core/Src/main.c:111:5:main	2
-../Core/Src/main.c:180:6:SystemClock_Config	4
-../Core/Src/main.c:223:6:SystemClock_DeInit	4
-../Core/Src/main.c:270:6:Error_Handler	1
+../Core/Src/main.c:106:9:verify_app	2
+../Core/Src/main.c:123:5:main	2
+../Core/Src/main.c:198:6:SystemClock_Config	4
+../Core/Src/main.c:241:6:SystemClock_DeInit	4
+../Core/Src/main.c:288:6:Error_Handler	1

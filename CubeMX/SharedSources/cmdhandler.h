@@ -15,6 +15,7 @@
  * */
 #include "stdint.h"
 #include "serial.h"
+#include "cmdqueue.h"
 
 /*
  * Public defines
@@ -23,16 +24,7 @@
 /*
  * Public data types.
  * */
-struct{
-	uint8_t module;
-	uint8_t cmd;
-} typedef tCmdhandler_cmdID;
 
-struct {
-	tCmdhandler_cmdID 	id;
-	uint16_t 			dataSize;
-	uint8_t 			data[256];
-} typedef tCmdhandler_cmd;
 
 // module command handler, used by other modules to connect a module id by a function.
 struct{

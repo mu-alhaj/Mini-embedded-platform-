@@ -178,28 +178,25 @@ void flash_cmd_handler( tCmdhandler_cmd inCmd )
 	if( inCmd.id.module !=  MODULE_ID_FLASH )
 		return;
 
-	tCmdhandler_cmd cmd;
-	memcpy( &cmd, (uint8_t*)&inCmd, sizeof(tCmdhandler_cmd) );
-
-	switch( cmd.id.cmd )
+	switch( inCmd.id.cmd )
 	{
 		case CMD_FLASH_WRITE:
 		{
 			// extract parameter from data.
 			// cmd.data : address 4 bytes + data cmd.dataSize - 4
 			uint32_t address = 0;
-			memcpy( &address, &cmd.data[0], 4);
-			uint8_t* pData 	 = &cmd.data[4];
+			memcpy( &address, &inCmd.pData[0], 4);
+			uint8_t* pData 	 = &inCmd.pData[4];
 
 			// call write
-			flash_write(address, pData, cmd.dataSize - 4 );
+			flash_write(address, pData, inCmd.dataSize - 4 );
 
 			break;
 		}
 		case CMD_FLASH_ERASE_PAGE:
 		{
 			uint32_t address = 0;
-			memcpy( &address, &cmd.data[0], 4 );
+			memcpy( &address, &inCmd.pData[0], 4 );
 			flash_erasePage( address, 1 );
 			break;
 		}

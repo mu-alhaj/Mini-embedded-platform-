@@ -17,14 +17,18 @@
  * Private defines.
  * */
 #define RX_BUF_SIZE	256
+#define ACK		 	((unsigned char)0x06)
+#define NACK	 	((unsigned char)0x15)
 /*
  * Private data types.
  * */
+
+
 struct
 {
 	UART_HandleTypeDef* pUart;
-	tCircularBuffer* 	pCBuff;
-	uint8_t 			pRxBuff[RX_BUF_SIZE];
+	tCmdqueue*			cmdq;
+	uint8_t				pRxBuff[RX_BUF_SIZE];
 	uint8_t				receivedSize;
 	void (*pCmdHandlerCB)(void);
 }typedef tSerialVars;
@@ -38,7 +42,6 @@ static tSerialVars serialVars;
 /*
  * Private function prototypes.
  * */
-void pushRxToCBuff();
 /*
  * Public function definitions.
  * */
@@ -47,10 +50,10 @@ void pushRxToCBuff();
  * ********************************************
  * 					function
  * ********************************************/
-void serial_uart_init(  UART_HandleTypeDef *huart, tCircularBuffer* pCBuff )
+void serial_uart_init(  UART_HandleTypeDef *huart, tCmdqueue* cmdq )
 {
-	serialVars.pUart  = huart;
-	serialVars.pCBuff = pCBuff;
+	serialVars.pUart  		= huart;
+	serialVars.cmdq			= cmdq;
 
 	return;
 }
@@ -85,14 +88,37 @@ void serial_uart_registerCB( void (*pCB)(void) )
  * ********************************************
  * 					function
  * ********************************************/
-void pushRxToCBuff()
-{
-	circularBuffer_push( serialVars.pCBuff, serialVars.pRxBuff, serialVars.receivedSize );
 
-	// notify cmdhandler about the new data.
-	scheduler_pushTask( serialVars.pCmdHandlerCB );
-	return;
+uint32_t calculate_crc(uint8_t *data, uint32_t length) {
+    uint32_t crc = 0xFFFFFFFF;
+    for (uint32_t i = 0; i < length; i++) {
+        crc ^= data[i];
+        for (uint8_t j = 0; j < 8; j++) {
+            if (crc & 1) {
+                crc = (crc >> 1) ^ 0x04C11DB7;
+            } else {
+                crc >>= 1;
+            }
+        }
+    }
+    return crc ^ 0xFFFFFFFF;
 }
+
+uint8_t confirm_crc()
+{
+	// extract crc from incoming data
+	uint32_t received_crc = 0;
+	uint32_t crcIx = serialVars.receivedSize - 4;
+	memcpy( &received_crc, &serialVars.pRxBuff[crcIx], 4 );
+
+	uint32_t calc_crc = calculate_crc( serialVars.pRxBuff, serialVars.receivedSize - 4  );
+
+	if ( calc_crc == received_crc )
+		return 0;
+	else
+		return 1;
+}
+
 
 /*
  * ********************************************
@@ -106,8 +132,24 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 		HAL_UARTEx_ReceiveToIdle_DMA( serialVars.pUart, serialVars.pRxBuff, RX_BUF_SIZE );
 		serialVars.receivedSize = Size;
 
-		// move received data from rxBuff to cBuffer out side of the interrupt context.
-		scheduler_pushTask( pushRxToCBuff );
+		uint8_t res;
+		if ( 0 == confirm_crc() )
+		{
+			// ack the received message.
+			res = ACK;
+			HAL_UART_Transmit( serialVars.pUart, &res, 1, HAL_MAX_DELAY );
+
+			// copy in data to data buffer.
+			cmdqueue_push( serialVars.cmdq, serialVars.pRxBuff );
+			scheduler_pushTask( serialVars.pCmdHandlerCB );
+		}
+		else
+		{
+			// reRequest
+			res = NACK;
+			HAL_UART_Transmit( serialVars.pUart, &res, 1, HAL_MAX_DELAY );
+		}
+
 	}
 	return;
 }

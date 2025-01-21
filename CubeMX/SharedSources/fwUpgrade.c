@@ -111,7 +111,7 @@ void fwUpgrade_setFlag( uint32_t flag )
 {
 	uint32_t set_flag = (uint32_t) flag;
 	flash_erasePage( (uint32_t) APP_BOOT_FLAG_ADD, 1);
-	flash_write( APP_BOOT_FLAG_ADD, &set_flag, 4 );
+	flash_write( (uint32_t)APP_BOOT_FLAG_ADD, (uint8_t*)&set_flag, 4 );
 }
 
 /*
@@ -128,25 +128,23 @@ void fwUpgrade_cmd_handler( tCmdhandler_cmd inCmd )
 	if ( inCmd.id.module != MODULE_ID_FW_UPGRADE )
 		return;
 
-	tCmdhandler_cmd cmd;
-	memcpy( &cmd, (uint8_t*)&inCmd, sizeof(tCmdhandler_cmd) );
-
-	switch( cmd.id.cmd )
+	switch( inCmd.id.cmd )
 	{
 		case CMD_FW_UPGRADE_ERASE_APP:
 		{
 			fwUpgrade_eraseApp();
+			break;
 		}
 		case CMD_FW_UPGRADE_PROGRAM_APP:
 		{
 			// extract parameter from data.
 			// cmd.data : address 4 bytes + data cmd.dataSize - 4
 			uint32_t address = 0;
-			memcpy( &address, &cmd.data[0], 4);
-			uint8_t* pData 	 = &cmd.data[4];
+			memcpy( &address, &inCmd.pData[0], 4);
+			uint8_t* pData 	 = &inCmd.pData[4];
 
 			// call write
-			flash_write( address, pData, cmd.dataSize - 4 );
+			flash_write( address, pData, inCmd.dataSize - 4 );
 			break;
 		}
 		default:
