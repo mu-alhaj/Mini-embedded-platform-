@@ -1,2 +1,0 @@
-../Core/Src/uartStream.c:10:6:uartStream_init	1
-../Core/Src/uartStream.c:15:9:uartStream_sendU32	1

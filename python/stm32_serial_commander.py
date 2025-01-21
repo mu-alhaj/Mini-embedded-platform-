@@ -1,8 +1,6 @@
 import serial
 import struct
 import time
-import random
-import os
 
 hex_file_path = 'C:/Users/wxj509/Data/MicroRepo/CubeMX/App/Debug/App.hex'
 application_start_address = 0x8040000
@@ -25,7 +23,7 @@ id_fwUpgrade_erase_app = 0x0301
 id_fwUpgrade_program_app = 0x0302
 id_fwUpgrade_send_app_crc = 0x0303
 
-# new command ( 1 byte ) / command id ( 2 byte ) / data size ( 2 bytes ) / data up to 252
+# new command ( 1 byte ) / command id ( 2 byte ) / data size ( 2 bytes ) / data bytes / crc (4 bytes)
 class Command:
     def __init__(self, id, size, data=bytearray([0])):
         self.newCmd = 0xab
@@ -52,24 +50,24 @@ class Command:
 ##################################
 
 def uart_send_cmd( ser, cmd ):
-    #print("Send data\n")
     crc = calculate_crc( cmd )
     cmd = cmd + struct.pack( '<I', crc )
     if ser.is_open:
         ser.write(cmd)
-        print(f"uart_send_cmd , data sent :\n {cmd} \n")
+        hex_cmd = ' '.join( f'{byte:02x}' for byte in cmd )
+        print(f"uart_send_cmd ,total size: {len(cmd)} , data sent :\n {hex_cmd}")
         
         # read stm response. 
         time.sleep(0.1)
         response = ser.read(1) 
         if response == ACK:
-            print(f"Received ACK {response}")
+            print(f"Received ACK {response}\n")
             return True
         elif response == NAK:
-            print(f"Received NAK {response}")
+            print(f"Received NAK {response}\n")
             return False
         else:
-            print(f"No valid response received {response}")
+            print(f"No valid response received {response}\n")
             return False
 
     else:
@@ -144,7 +142,7 @@ def fwUpgrade_program_app(add, data):
     return uart_send_cmd( ser, cmd_fwUpgrade_program.pack() )
 
 ##################################
-#       fwUpgrade commands
+#       utilities
 ##################################
 
 def read_hex_file(file_path):
@@ -174,15 +172,12 @@ def binary_from_hexFile(file_path):
             if line[7] == '0' and line[8] == '0' : 
                 data = bytes.fromhex( line[9:-3].strip() )
                 binary_data.extend( data )
-    
     return binary_data
 
-def main ():
+def update_app():
 
-    add = application_start_address
-    chunk_size = 64
-
-    print("Start\n")
+    add         = application_start_address
+    chunk_size  = 64
 
     # Set up the serial port
     global ser
@@ -199,52 +194,51 @@ def main ():
 
     # erase application flash area
     if ( not fwUpgrade_erase_app() ) : 
-        exit(1)
+        return False
     time.sleep(3)
 
-    wait_for_input = True
-    keep_going = True
-    i = 0
+    wait_for_input  = True
+    keep_going      = True
+    i               = 0
+    index           = 1
+    
     # start writing application
-    index = 1
-    #for i in range ( 0, len( binary_data ), chunk_size ):
     while keep_going :
-
+        # if whole data was send, break
+        if ( len( binary_data ) - i == 0 ):
+            break
         # wait for me before sending new chunk
         if wait_for_input:
-            user_input = input("Press Enter to print the next chunk or enter '1' to print all remaining chunks: ")
+            user_input = input("Press Enter to send the next chunk or enter '1' to send all remaining chunks: ")
             if user_input == '1':
                 wait_for_input = False    
 
+        # determine if there is a whole cunck to be send, ohterwise, send what ever left
         if ( len( binary_data ) - i > chunk_size ):
             chunk = binary_data[i:i+chunk_size]
         else:
             chunk = binary_data[i:]
-            # this is the last chunk
-            keep_going = False
-            print(f"last chunk size { len(binary_data) - i }")
 
         # what we are tring to send:
-        print( index )
+        print( f"chunk index: {index}" )
         hex_chunck = ' '.join( f'{byte:02x}' for byte in chunk )
-        print(hex_chunck)
+        print(f"hex_chunck of size {len(chunk)}: \n {hex_chunck}")
 
         if fwUpgrade_program_app( add, chunk ) : 
             # Chunck was sent successfully and stm acked.
             index   += 1
-            add     += chunk_size
-            i       += chunk_size
+            add     += len(chunk)
+            i       += len(chunk)
         
         else:
-            # do not update address 
+            # do not update address or index.
             #wait here
-            input()
-
-        #time.sleep(0.1)  # Small delay to avoid overwhelming the STM32
+            finish = input("Press Enter to rety or enter '1' terminate. ")
+            if( finish == '1' ):
+                keep_going = False
     
+    print("\n\n hex transferred successfully !!")
     ser.close()
-
-    exit(0)
 
 def test():
     # Set up the serial port
@@ -261,6 +255,17 @@ def test():
         led_toggle() 
 
     ser.close()
+
+    exit(0)
+
+
+##################################
+#       Main function.
+##################################
+def main ():
+
+    print("Start\n")
+    update_app()
 
     exit(0)
 

@@ -148,6 +148,7 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 			// reRequest
 			res = NACK;
 			HAL_UART_Transmit( serialVars.pUart, &res, 1, HAL_MAX_DELAY );
+			res = 0;
 		}
 
 	}
