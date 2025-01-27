@@ -1,7 +1,9 @@
 /*
  * circularBuffer.h
+ *
  * This module is meant to be used by other modules. other modules should be able to create its own buffers,
  * and pass it to this module to be able to initiate and manipulate it.
+ *
  *  Created on: Dec 20, 2024
  *      Author: wxj509
  */
@@ -16,8 +18,8 @@
 struct
 {
 	uint16_t capacity;			// maximum size of the pBuffer.
-	uint16_t tail;			// index of last element +1 in buffer, always available to write.
-	uint16_t head;			// index of first element in buffer
+	uint16_t tail;				// index of last element +1 in buffer, always available to write.
+	uint16_t head;				// index of first element in buffer
 	uint8_t* pBuffer;
 }typedef tCircularBuffer;
 

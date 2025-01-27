@@ -16,8 +16,6 @@
 /*
  * Public defines
  * */
-#define GO_APP	0xABB0ABB0
-#define GO_BOOT	0xB001B001
 
 /*
  * Public data types.
@@ -28,48 +26,32 @@
  * */
 
 /*
- * desc   :
- * param  :
- * 			param1 :
- * 			param2 :
- * return : 0 if succeed.
+ * desc   : Initialize the firmware upgrade module
+ * param  : -
+ * return : -
  * */
 void fwUpgrade_init();
 
 /*
- * desc   :
- * param  :
- * 			param1 :
- * 			param2 :
+ * desc   : erases the application memory area before flashing a new one.
+ * param  : -
  * return : 0 if succeed.
  * */
-void fwUpgrade_eraseApp();
+uint8_t fwUpgrade_eraseApp();
 
 /*
- * desc   :
- * param  :
- * 			param1 :
- * 			param2 :
- * return : 0 if succeed.
+ * desc   : not used.
+ * param  : -
+ * return : -
  * */
 void fwUpgrade_programApp();
 
 /*
- * desc   :
- * param  :
- * 			param1 :
- * 			param2 :
- * return : 0 if succeed.
+ * desc   :	calculate the checksum of the application and compare it with the one sent by the user.
+ * param  : -
+ * return : 0 if succeed, 1 otherwise.
  * */
-void fwUpgrade_jumpToApp();
+uint8_t fwUpgrade_verifyApp();
 
-/*
- * desc   :
- * param  :
- * 			param1 :
- * 			param2 :
- * return : 0 if succeed.
- * */
-void fwUpgrade_setFlag( uint32_t flag );
 
 #endif /* FWUPGRADE_H_ */

@@ -42,6 +42,8 @@ static tSerialVars serialVars;
 /*
  * Private function prototypes.
  * */
+uint32_t calculate_crc(uint8_t *data, uint32_t length);
+
 /*
  * Public function definitions.
  * */

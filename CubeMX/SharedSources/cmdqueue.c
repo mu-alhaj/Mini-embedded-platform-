@@ -1,6 +1,11 @@
 /*
  * dataQ.c
  *
+ *	This module will be used by serial uart (or other data providers) and command handler.
+ *	The module should be able to receive data from a data provider, parse it into commands
+ *	and push it into the queue.
+ *	The command handler would be able to pop commands and free the memory allocated afterwards.
+ *
  *  Created on: Jan 20, 2025
  *      Author: wxj509
  */
@@ -42,7 +47,6 @@
  * ********************************************/
 uint8_t cmdqueue_init( tCmdqueue* cmdq )
 {
-
 	cmdq->head = 0;
 	cmdq->tail = 0;
 	cmdq->count= 0;
@@ -74,7 +78,6 @@ uint8_t cmdqueue_push( tCmdqueue* cmdq, uint8_t *pData )
     tCmdhandler_cmd* cmd = (tCmdhandler_cmd*)malloc(sizeof(tCmdhandler_cmd));
 
     // parse data into cmd
-
     cmd->id.module  = pData[2];
     cmd->id.cmd		= pData[1];
 
@@ -90,8 +93,8 @@ uint8_t cmdqueue_push( tCmdqueue* cmdq, uint8_t *pData )
 		cmd->pData = NULL;
 	}
 
+	// push cmd into the queue
 	cmdq->pCmdList[cmdq->tail] = cmd;
-
     cmdq->tail = (cmdq->tail + 1) % CMD_Q_SIZE;
     cmdq->count++;
 

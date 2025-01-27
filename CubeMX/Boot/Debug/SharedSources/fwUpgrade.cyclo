@@ -1,5 +1,4 @@
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:51:6:fwUpgrade_init	1
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:64:6:fwUpgrade_eraseApp	1
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:78:6:fwUpgrade_jumpToApp	1
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:110:6:fwUpgrade_setFlag	1
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:125:6:fwUpgrade_cmd_handler	4
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:45:6:fwUpgrade_init	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:58:9:fwUpgrade_eraseApp	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:71:9:fwUpgrade_verifyApp	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/fwUpgrade.c:90:6:fwUpgrade_cmd_handler	4

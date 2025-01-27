@@ -23,7 +23,6 @@
 
 #include "stm32f3xx_hal.h"
 #include "stm32f3xx_hal_flash.h"
-#include "stm32f3xx_hal_flash_ex.h"	// to get page size
 
 //private defines.
 

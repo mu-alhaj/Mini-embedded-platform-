@@ -31,4 +31,5 @@
 "./SharedSources/led.o"
 "./SharedSources/scheduler.o"
 "./SharedSources/serial.o"
+"./SharedSources/systemRestart.o"
 "./SharedSources/template.o"

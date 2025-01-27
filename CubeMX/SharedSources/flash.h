@@ -10,6 +10,8 @@
 
 // Includes
 #include <stdint.h>
+#include "stm32f3xx_hal.h"
+#include "stm32f3xx_hal_flash_ex.h"	// to get page size
 
 // Public defines
 #define BOOT_START_ADD 0x8000000

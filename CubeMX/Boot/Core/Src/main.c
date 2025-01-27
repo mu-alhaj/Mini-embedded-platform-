@@ -33,6 +33,7 @@
 #include "cmdhandler.h"
 #include "fwUpgrade.h"
 #include <stdio.h>
+#include "systemRestart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -77,15 +78,6 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 
-void deInitBoot()
-{
-	MX_USART2_UART_DeInit();
-	MX_DMA_DeInit();
-	MX_GPIO_DeInit();
-	SystemClock_DeInit();
-	HAL_DeInit();
-}
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if ( GPIO_Pin == B1_Pin )
@@ -96,22 +88,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		 *  A work around can be to save a flag in flash that tells us it time to jump, perform a
 		 *  system restart and jump to application first in main before initializing any peripherals.
 		 * */
-		fwUpgrade_setFlag( GO_APP );
-		NVIC_SystemReset();
+		systemRestart_setFlag( GO_APP );
+		systemRestart_restart();
 
 	}
-}
-
-// verify application
-uint8_t verify_app()
-{
-	uint8_t *data = (uint8_t*) APP_START_ADD;
-	uint32_t crc = calculate_crc( data, 16131 );
-
-	if ( crc == 0xffbd47d9 )
-		return 1;
-	else
-		return 0;
 }
 
 /* USER CODE END 0 */
@@ -122,24 +102,16 @@ uint8_t verify_app()
   */
 int main(void)
 {
-
-	printf( "Start");
   /* USER CODE BEGIN 1 */
+
+	// check if we should stay in boot or jump to app.
 	uint32_t flag = 0;
-	flash_read( APP_BOOT_FLAG_ADD, &flag, 4 );
+	systemRestart_getFlag( &flag );
 	if( flag == GO_APP )
 	{
-		// invalidate application flag to stay in boot next time.
-		fwUpgrade_setFlag( GO_BOOT );
-
 		// jump.
-		fwUpgrade_jumpToApp();
+		systemRestart_jumpToApp();
 	}
-
-
-	verify_app();
-
-
 
   /* USER CODE END 1 */
 

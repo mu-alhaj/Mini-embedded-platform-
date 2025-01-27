@@ -1,10 +1,7 @@
-../Drivers/CMSIS/Include/core_cm4.h:1939:34:__NVIC_SystemReset	1
 ../Drivers/CMSIS/Include/core_cm4.h:2064:26:ITM_SendChar	4
-../Core/Src/main.c:68:5:_write	2
-../Core/Src/main.c:80:6:deInitBoot	1
-../Core/Src/main.c:89:6:HAL_GPIO_EXTI_Callback	1
-../Core/Src/main.c:106:9:verify_app	2
-../Core/Src/main.c:123:5:main	2
-../Core/Src/main.c:198:6:SystemClock_Config	4
-../Core/Src/main.c:241:6:SystemClock_DeInit	4
-../Core/Src/main.c:288:6:Error_Handler	1
+../Core/Src/main.c:69:5:_write	2
+../Core/Src/main.c:81:6:HAL_GPIO_EXTI_Callback	2
+../Core/Src/main.c:103:5:main	2
+../Core/Src/main.c:170:6:SystemClock_Config	4
+../Core/Src/main.c:213:6:SystemClock_DeInit	4
+../Core/Src/main.c:260:6:Error_Handler	1

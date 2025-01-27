@@ -1,14 +1,17 @@
 /*
  * cmdhandler.h
  *
+ *	This module will create a command queue structure and pass it alongside a specific uart handle to the serial module,
+ *	where from the command queue will be filled, the command will be redirected to the respective module to be executed.
+ *	Other modules should be able to register its command handler, and the cmdhandler module will send related commands
+ *	to that module.
+ *
  *  Created on: Jan 10, 2025
  *      Author: wxj509
  */
 
 #ifndef CMDHANDLER_H_
 #define CMDHANDLER_H_
-
-
 
 /*
  * Includes
@@ -32,20 +35,15 @@ struct{
 	void (*funPtr)(tCmdhandler_cmd);
 }typedef tCmdhandler_moduleCmdHandler;
 
-
-
-
-
 /*
  * Public function prototypes.
  * */
 
 /*
- * desc   :
+ * desc   : Initialize the command handler, by initializing a serial port and command queue.
  * param  :
- * 			param1 :
- * 			param2 :
- * return : 0 if succeed.
+ * 			huart : that point out the uart port that commands are coming from
+ * return : -
  * */
 void cmdhandler_init( UART_HandleTypeDef* huart );
 
@@ -53,8 +51,7 @@ void cmdhandler_init( UART_HandleTypeDef* huart );
  * desc   : Other modules will be able to register call backs with the
  * 			cmdhandler to be notified when needed.
  * param  :
- * 			param1 :
- * 			param2 :
+ * 			cmdhandler : the modules own command handler function pointer and module id.
  * return : 0 if succeed.
  * */
 uint8_t cmdhandler_registerModuleCmdHandler( tCmdhandler_moduleCmdHandler cmdhandler);

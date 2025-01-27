@@ -4,7 +4,7 @@
  *  Created on: Jan 20, 2025
  *      Author: wxj509
  *
- *	This module should be able to receive data from serial uart and convert it into commands
+ *	This module should be able to receive data from serial uart, parse it into commands
  *	and place them in a queue to be processed later.
  *
  */
@@ -22,9 +22,9 @@
 /*
  * Public defines
  * */
-// new command key
-#define CMD_NEW			((unsigned char)0xabu)
-#define CMD_Q_SIZE		10
+
+#define CMD_NEW			((unsigned char)0xabu)	// new command key
+#define CMD_Q_SIZE		10						// size of the command queue
 
 /*
  * Public data types.
@@ -52,46 +52,43 @@ struct {
  * */
 
 /*
- * desc   :
+ * desc   : initialize the queue owned/created by other modules
  * param  :
- * 			param1 :
- * 			param2 :
+ * 			cmdq : pointer to the command queue to be initialized.
  * return : 0 if succeed.
  * */
 uint8_t cmdqueue_init( tCmdqueue* cmdq );
 
 /*
- * desc   :
+ * desc   : De-initialize the que
  * param  :
- * 			param1 :
- * 			param2 :
+ * 			cmdq : pointer to the command queue to be De-initialized.
  * return : 0 if succeed.
  * */
 uint8_t cmdqueue_deinit( tCmdqueue* cmdq );
 
 /*
- * desc   :
+ * desc   :	takes in new data, parse it into command and push it to the command queue.
  * param  :
- * 			param1 :
- * 			param2 :
+ * 			cmdq : queue for the command to be pushed into.
+ * 			pData : data to be parsed and pushed.
  * return : 0 if succeed.
  * */
 uint8_t cmdqueue_push( tCmdqueue* cmdq, uint8_t *pData );
 
 /*
- * desc   :
+ * desc   : pops commands from queue
  * param  :
- * 			param1 :
- * 			param2 :
+ * 			cmdq : the queue commands will be popped from
+ * 			pCmd : pointer to the popped command
  * return : 0 if succeed.
  * */
 uint8_t cmdqueue_pop( tCmdqueue* cmdq, tCmdhandler_cmd** pCmd );
 
 /*
- * desc   :
+ * desc   :	frees commands memory, should be used after the command was executed.
  * param  :
- * 			param1 :
- * 			param2 :
+ * 			pCmd : the command to be freed.
  * return : 0 if succeed.
  * */
 uint8_t cmdqueue_freeCmd( tCmdhandler_cmd* pCmd );

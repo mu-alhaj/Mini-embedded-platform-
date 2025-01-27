@@ -1,6 +1,10 @@
 /*
  * scheduler.c
  *
+ * Other modules should be able to register task to be executed periodically by the scheduler.
+ * Other modules should also be able to push tasks to be executed once by the scheduler, this is
+ * mainly to avoid running tasks in interrupt context.
+ *
  *  Created on: Dec 12, 2024
  *      Author: wxj509
  */

@@ -23,13 +23,7 @@
 /*
  * Private data types.
  * */
-typedef void (application_t)(void);
 
-typedef struct
-{
-    uint32_t		stack_addr;     // Stack Pointer
-    application_t*	func_p;        // Program Counter
-} JumpStruct;
 
 /*
  * Private data.
@@ -61,57 +55,28 @@ void fwUpgrade_init()
  * ********************************************
  * 					function
  * ********************************************/
-void fwUpgrade_eraseApp()
+uint8_t fwUpgrade_eraseApp()
 {
 	uint32_t address 	= APP_START_ADD;
 	uint32_t eraseArea 	= FLASH_END_ADD - APP_START_ADD;
 	uint32_t nrPages   	= eraseArea / FLASH_PAGE_SIZE ;
 
-	flash_erasePage( address, nrPages );
-	return;
+	return flash_erasePage( address, nrPages );
 }
 
 /*
  * ********************************************
  * 					function
  * ********************************************/
-void fwUpgrade_jumpToApp()
+uint8_t fwUpgrade_verifyApp()
 {
-	// Start address of your application
-    uint32_t app_start_address = APP_START_ADD;
+	uint8_t *data = (uint8_t*) APP_START_ADD;
+	uint32_t crc = calculate_crc( data, 16131 );
 
-    // Reset vector
-    uint32_t reset_handler = *(volatile uint32_t*)(app_start_address + 4);
-
-    // Stack pointer
-    uint32_t stack_pointer = (uint32_t) *((__IO uint32_t*) app_start_address );
-
-    // Set application function.
-    void (*app_reset_handler)(void) = (void (*)(void))( reset_handler );
-
-
-	// Set the vector table base address to the application address
-
-    // no need to set VTOR since USER_VECT_TAB_ADDRESS is defined in applications Gcc compiler/preprocessor
-    // so it will be updated on the run.
-	//SCB->VTOR = stack_pointer;
-
-    // Set the stack pointer to the application's stack pointer
-    __set_MSP(stack_pointer);
-
-    // Call the application
-    app_reset_handler();
-}
-
-/*
- * ********************************************
- * 					function
- * ********************************************/
-void fwUpgrade_setFlag( uint32_t flag )
-{
-	uint32_t set_flag = (uint32_t) flag;
-	flash_erasePage( (uint32_t) APP_BOOT_FLAG_ADD, 1);
-	flash_write( (uint32_t)APP_BOOT_FLAG_ADD, (uint8_t*)&set_flag, 4 );
+	if ( crc == 0xffbd47d9 )		// TODO: shoudl be able to receive and spare crc from the user.
+		return 1;
+	else
+		return 0;
 }
 
 /*

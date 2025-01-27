@@ -23,10 +23,15 @@ typedef  void (*funcPtr)(void);
  * Public function prototypes.
  * */
 
+/*
+ * desc  : initialize the scheduler module.
+ * param : -
+ * return: -
+ * */
 void scheduler_init( void );
 
 /*
- * desc  : adds task to the scheduler
+ * desc  : adds task to the scheduler to be performed periodically.
  * param :
  * 		delay : how often to execute.
  * 		pTask : the task to be executed.
@@ -35,7 +40,7 @@ void scheduler_init( void );
 uint8_t scheduler_addTask( uint32_t delay, void (*pTask)(void) );
 
 /*
- * desc  : ask the scheduler to run som task once.
+ * desc  : adds task to the scheduler to be performed once.
  * 		   gets useful when you want to place a task to be run after leaving interrupt context.
  * param :
  * 		pTask : the task to be executed.
@@ -43,10 +48,9 @@ uint8_t scheduler_addTask( uint32_t delay, void (*pTask)(void) );
  * */
 uint8_t scheduler_pushTask( void (*pTask)(void) );
 
-uint8_t scheduler_addTimer();
-
 /*
  * desc  : Start the scheduler to start running the tasks.
+ * 		   NOTICE: this function does not return.
  * */
 void scheduler_run( void );
 

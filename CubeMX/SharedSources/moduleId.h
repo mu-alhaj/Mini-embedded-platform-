@@ -1,6 +1,9 @@
 /*
  * moduleID.h
  *
+ * This file will hold unique modules IDs used by command handler to be able
+ * to redirect incoming commands to the respective modules.
+ *
  *  Created on: Jan 14, 2025
  *      Author: wxj509
  */

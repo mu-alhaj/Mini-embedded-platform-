@@ -1,6 +1,6 @@
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:53:6:serial_uart_init	1
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:65:9:serial_uart_receiveToIdle	1
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:78:6:serial_uart_registerCB	1
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:92:10:calculate_crc	4
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:107:9:confirm_crc	2
-C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:127:6:HAL_UARTEx_RxEventCallback	3
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:55:6:serial_uart_init	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:67:9:serial_uart_receiveToIdle	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:80:6:serial_uart_registerCB	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:94:10:calculate_crc	4
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:109:9:confirm_crc	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/serial.c:129:6:HAL_UARTEx_RxEventCallback	3
