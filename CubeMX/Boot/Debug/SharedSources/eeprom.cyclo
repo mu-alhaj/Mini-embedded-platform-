@@ -1,0 +1,11 @@
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:58:6:eeprom_init	4
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:102:6:eeprom_erase	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:111:6:eeprom_setSystemRestartFlag	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:124:9:eeprom_getSystemRestartFlag	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:141:6:eeprom_setAppSize	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:154:9:eeprom_getAppSize	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:170:6:eeprom_setAppCrc	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:183:9:eeprom_getAppCrc	2
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:200:6:eeprom_store	1
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:218:9:findEepromReadAdd	4
+C:/Users/wxj509/Data/MicroRepo/CubeMX/SharedSources/eeprom.c:258:9:findEepromWriteAdd	4

@@ -26,6 +26,8 @@
 "./SharedSources/circularBuffer.o"
 "./SharedSources/cmdhandler.o"
 "./SharedSources/cmdqueue.o"
+"./SharedSources/crc.o"
+"./SharedSources/eeprom.o"
 "./SharedSources/flash.o"
 "./SharedSources/fwUpgrade.o"
 "./SharedSources/led.o"

@@ -19,9 +19,10 @@ id_flash_write      = 0x0201
 id_flash_erase_page = 0x0202
 
 #fwUpgrade commands
-id_fwUpgrade_erase_app = 0x0301
-id_fwUpgrade_program_app = 0x0302
-id_fwUpgrade_send_app_crc = 0x0303
+id_fwUpgrade_erase_app      = 0x0301
+id_fwUpgrade_prog_app       = 0x0302
+id_fwUpgrade_prog_app_start = 0x0303
+id_fwUpgrade_prog_app_end   = 0x0304
 
 # new command ( 1 byte ) / command id ( 2 byte ) / data size ( 2 bytes ) / data bytes / crc (4 bytes)
 class Command:
@@ -96,16 +97,16 @@ def calculate_crc( data ):
 def led_set( set ):
     if( set ):
         data = bytearray([1])
-        cmd_led_set = Command( id_led_set,1, data )
-        return uart_send_cmd( ser, cmd_led_set.pack() )
+        cmd = Command( id_led_set,1, data )
+        return uart_send_cmd( ser, cmd.pack() )
     else:
         data = bytearray([0])
-        cmd_led_set = Command( id_led_set,1, data )
-        return uart_send_cmd( ser, cmd_led_set.pack() )
+        cmd = Command( id_led_set,1, data )
+        return uart_send_cmd( ser, cmd.pack() )
 
 def led_toggle():
-    cmd_led_toggle = Command( id_led_toggle, 0 )
-    return uart_send_cmd( ser, cmd_led_toggle.pack() )
+    cmd = Command( id_led_toggle, 0 )
+    return uart_send_cmd( ser, cmd.pack() )
 
 
 ##################################
@@ -116,14 +117,14 @@ def flash_write( add, data ):
     print ("flash write")
     data_bytes = add.to_bytes(4, byteorder='little')
     data_bytes += data.encode('utf-8')
-    cmd_flash_write = Command( id_flash_write, len( data_bytes ), data_bytes )
-    return uart_send_cmd( ser, cmd_flash_write.pack() )
+    cmd = Command( id_flash_write, len( data_bytes ), data_bytes )
+    return uart_send_cmd( ser, cmd.pack() )
 
 def flash_erase_page( add ):
     print("flash erase page")
     data_bytes = add.to_bytes(4, byteorder='little')
-    cmd_flash_erase_page = Command( id_flash_erase_page, len( data_bytes ), data_bytes )
-    return uart_send_cmd( ser, cmd_flash_erase_page.pack() )
+    cmd = Command( id_flash_erase_page, len( data_bytes ), data_bytes )
+    return uart_send_cmd( ser, cmd.pack() )
 
 ##################################
 #       fwUpgrade commands
@@ -131,15 +132,27 @@ def flash_erase_page( add ):
 
 def fwUpgrade_erase_app():
     print("fwUpgrade erase app")
-    cmd_fwUpgrade_erase_app = Command( id_fwUpgrade_erase_app, 0 )
-    return uart_send_cmd( ser, cmd_fwUpgrade_erase_app.pack() )
+    cmd = Command( id_fwUpgrade_erase_app, 0 )
+    return uart_send_cmd( ser, cmd.pack() )
 
 def fwUpgrade_program_app(add, data):
     print ("fwUpgrade program")
     data_bytes = add.to_bytes(4, byteorder='little')
     data_bytes += data
-    cmd_fwUpgrade_program = Command( id_fwUpgrade_program_app, len( data_bytes ), data_bytes )
-    return uart_send_cmd( ser, cmd_fwUpgrade_program.pack() )
+    cmd = Command( id_fwUpgrade_prog_app, len( data_bytes ), data_bytes )
+    return uart_send_cmd( ser, cmd.pack() )
+
+def fwUpgrade_program_app_start( size, crc ):
+    print ("fwUpgrade program start")
+    data_bytes = size.to_bytes(4, byteorder='little')
+    data_bytes += crc.to_bytes(4, byteorder='little')
+    cmd = Command( id_fwUpgrade_prog_app_start, len( data_bytes ), data_bytes )
+    return uart_send_cmd( ser, cmd.pack() )
+
+def fwUpgrade_program_app_end():
+    print ("fwUpgrade program end")
+    cmd = Command( id_fwUpgrade_prog_app_end,0 )
+    return uart_send_cmd( ser, cmd.pack() )
 
 ##################################
 #       utilities
@@ -187,11 +200,14 @@ def update_app():
     binary_data = binary_from_hexFile( hex_file_path )
 
     # Calculate CRC checksum for the whole application
-    #TODO : try to send the checksum before programming the application and verifiy it afterwards and before jumping to app.
     crc_checksum = calculate_crc(binary_data)
     print(f"CRC Checksum: {crc_checksum:#010x}")
     size = len( binary_data )
     print( size  )
+
+    if ( not fwUpgrade_program_app_start( size, crc_checksum ) ):
+        return False
+    input()
 
     # erase application flash area
     if ( not fwUpgrade_erase_app() ) : 
@@ -238,6 +254,7 @@ def update_app():
             if( finish == '1' ):
                 keep_going = False
     
+    fwUpgrade_program_app_end()
     print("\n\n hex transferred successfully !!")
     ser.close()
 

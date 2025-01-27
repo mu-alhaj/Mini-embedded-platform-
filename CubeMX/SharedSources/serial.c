@@ -12,7 +12,7 @@
  * */
 #include "serial.h"
 #include "scheduler.h"
-#include "led.h"
+#include "crc.h"
 /*
  * Private defines.
  * */
@@ -91,20 +91,7 @@ void serial_uart_registerCB( void (*pCB)(void) )
  * 					function
  * ********************************************/
 
-uint32_t calculate_crc(uint8_t *data, uint32_t length) {
-    uint32_t crc = 0xFFFFFFFF;
-    for (uint32_t i = 0; i < length; i++) {
-        crc ^= data[i];
-        for (uint8_t j = 0; j < 8; j++) {
-            if (crc & 1) {
-                crc = (crc >> 1) ^ 0x04C11DB7;
-            } else {
-                crc >>= 1;
-            }
-        }
-    }
-    return crc ^ 0xFFFFFFFF;
-}
+
 
 uint8_t confirm_crc()
 {
@@ -113,7 +100,7 @@ uint8_t confirm_crc()
 	uint32_t crcIx = serialVars.receivedSize - 4;
 	memcpy( &received_crc, &serialVars.pRxBuff[crcIx], 4 );
 
-	uint32_t calc_crc = calculate_crc( serialVars.pRxBuff, serialVars.receivedSize - 4  );
+	uint32_t calc_crc = crc_calculate( serialVars.pRxBuff, serialVars.receivedSize - 4  );
 
 	if ( calc_crc == received_crc )
 		return 0;

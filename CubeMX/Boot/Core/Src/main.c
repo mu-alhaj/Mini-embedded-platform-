@@ -34,6 +34,7 @@
 #include "fwUpgrade.h"
 #include <stdio.h>
 #include "systemRestart.h"
+#include "eeprom.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,14 +104,20 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	eeprom_init();
 	// check if we should stay in boot or jump to app.
+
 	uint32_t flag = 0;
 	systemRestart_getFlag( &flag );
 	if( flag == GO_APP )
 	{
-		// jump.
-		systemRestart_jumpToApp();
+		// verify application before jump
+		if( fwUpgrade_verifyApp()  )
+		{
+			// jump.
+			systemRestart_jumpToApp();
+		}
+
 	}
 
   /* USER CODE END 1 */
@@ -138,13 +145,10 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // initiate command handler first to be ready to register other modules.
-  cmdhandler_init( &huart2 );
-
+  cmdhandler_init( &huart2 );	// make sure cmdhandler is initialized before initializing other modules that want to register with it.
+  fwUpgrade_init();
   led_init();
   flash_init();
-  fwUpgrade_init();
-
-
 
   scheduler_init();
   scheduler_addTask( 50, led_run );

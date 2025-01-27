@@ -40,11 +40,20 @@ void fwUpgrade_init();
 uint8_t fwUpgrade_eraseApp();
 
 /*
- * desc   : not used.
+ * desc   : signal the start of application programming
+ * param  :
+ * 		- size of the application according to user.
+ * 		- crc of application according to user.
+ * return : -
+ * */
+void fwUpgrade_programAppStart( uint32_t size, uint32_t crt );
+
+/*
+ * desc   : signal the application programming is done and the time for verification.
  * param  : -
  * return : -
  * */
-void fwUpgrade_programApp();
+void fwUpgrade_programAppEnd();
 
 /*
  * desc   :	calculate the checksum of the application and compare it with the one sent by the user.

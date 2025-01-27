@@ -18,7 +18,8 @@
 #define APP_START_ADD  0x8040000	// 128 pages from base/boot start
 #define FLASH_END_ADD  0x8080000	// 128 pages from app start
 
-#define APP_BOOT_FLAG_ADD ( APP_START_ADD - FLASH_PAGE_SIZE )	// reserve the last 32 bytes for the flag.
+#define FLASH_EEPROM_START ( APP_START_ADD - FLASH_PAGE_SIZE )	// reserve the last page of boot area for the simulated eeprom
+#define FLASH_EEPROM_END ( APP_START_ADD )
 
 // Public data types.
 

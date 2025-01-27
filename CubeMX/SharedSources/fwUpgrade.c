@@ -13,21 +13,31 @@
 #include "moduleId.h"
 #include "cmdhandler.h"
 #include "flash.h"
+#include "crc.h"
+#include "eeprom.h"
 
 /*
  * Private defines.
  * */
 #define CMD_FW_UPGRADE_ERASE_APP		((unsigned char)0x01u)
-#define CMD_FW_UPGRADE_PROGRAM_APP  	((unsigned char)0x02u)
+#define CMD_FW_UPGRADE_PROG_APP			((unsigned char)0x02u)
+#define CMD_FW_UPGRADE_PROG_APP_START  	((unsigned char)0x03u)
+#define CMD_FW_UPGRADE_PROG_APP_END  	((unsigned char)0x04u)
 
 /*
  * Private data types.
  * */
-
+struct
+{
+	uint32_t appSize;
+	uint32_t appCRC;
+	uint8_t  appOk;
+} typedef tFwUpgradeVars;
 
 /*
  * Private data.
  * */
+static tFwUpgradeVars fwUpgradeVars;
 
 /*
  * Private function prototypes.
@@ -48,6 +58,18 @@ void fwUpgrade_init()
 	tCmdhandler_moduleCmdHandler cmd_handler = { .moduleId = MODULE_ID_FW_UPGRADE, .funPtr = fwUpgrade_cmd_handler };
 
 	cmdhandler_registerModuleCmdHandler( cmd_handler );
+
+	uint32_t appSize;
+	uint32_t appCrc;
+	if ( 0 == eeprom_getAppSize( &appSize ) )
+	{
+		fwUpgradeVars.appSize = appSize;
+	}
+	if ( 0 == eeprom_getAppCrc( &appCrc ) )
+	{
+		fwUpgradeVars.appCRC = appCrc;
+	}
+
 	return;
 }
 
@@ -68,15 +90,68 @@ uint8_t fwUpgrade_eraseApp()
  * ********************************************
  * 					function
  * ********************************************/
+void fwUpgrade_programAppStart( uint32_t size, uint32_t crc )
+{
+	fwUpgradeVars.appSize 	= size;
+	fwUpgradeVars.appCRC 	= crc;
+	fwUpgradeVars.appOk 	= 0;
+
+	// save size and crc received by the user to be used in future.
+	eeprom_setAppCrc( fwUpgradeVars.appCRC );
+	eeprom_setAppSize( fwUpgradeVars.appSize );
+	eeprom_store();
+}
+
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
+void fwUpgrade_programAppEnd()
+{
+	if ( 0 == fwUpgrade_verifyApp() )
+	{
+		fwUpgradeVars.appOk = 1;
+	}
+	else
+	{
+		fwUpgradeVars.appOk = 0;
+	}
+}
+
+/*
+ * ********************************************
+ * 					function
+ * ********************************************/
 uint8_t fwUpgrade_verifyApp()
 {
-	uint8_t *data = (uint8_t*) APP_START_ADD;
-	uint32_t crc = calculate_crc( data, 16131 );
+	// this function will be used before the initialization of the module, it should not be dependent of the init function.
+	uint32_t appSize = 0;
+	uint32_t appCrc = 0;
+	if ( 0 == eeprom_getAppSize( &appSize ) )
+	{
+		fwUpgradeVars.appSize = appSize;
+	}
+	if ( 0 == eeprom_getAppCrc( &appCrc ) )
+	{
+		fwUpgradeVars.appCRC = appCrc;
+	}
 
-	if ( crc == 0xffbd47d9 )		// TODO: shoudl be able to receive and spare crc from the user.
+	if ( fwUpgradeVars.appSize == 0 || fwUpgradeVars.appCRC == 0 )
 		return 1;
-	else
+
+	uint8_t *data = (uint8_t*) APP_START_ADD;
+	uint32_t crc = crc_calculate( data, fwUpgradeVars.appSize );
+
+	if ( crc == fwUpgradeVars.appCRC )
+	{
+		fwUpgradeVars.appOk = 1;
 		return 0;
+	}
+	else
+	{
+		fwUpgradeVars.appOk = 0;
+		return 1;
+	}
 }
 
 /*
@@ -100,7 +175,7 @@ void fwUpgrade_cmd_handler( tCmdhandler_cmd inCmd )
 			fwUpgrade_eraseApp();
 			break;
 		}
-		case CMD_FW_UPGRADE_PROGRAM_APP:
+		case CMD_FW_UPGRADE_PROG_APP:
 		{
 			// extract parameter from data.
 			// cmd.data : address 4 bytes + data cmd.dataSize - 4
@@ -110,6 +185,19 @@ void fwUpgrade_cmd_handler( tCmdhandler_cmd inCmd )
 
 			// call write
 			flash_write( address, pData, inCmd.dataSize - 4 );
+			break;
+		}
+		case CMD_FW_UPGRADE_PROG_APP_START:
+		{
+			uint32_t size, crc;
+			memcpy( &size, &inCmd.pData[0], 4);
+			memcpy( &crc, &inCmd.pData[4], 4);
+			fwUpgrade_programAppStart( size, crc );
+			break;
+		}
+		case CMD_FW_UPGRADE_PROG_APP_END:
+		{
+			fwUpgrade_programAppEnd();
 			break;
 		}
 		default:

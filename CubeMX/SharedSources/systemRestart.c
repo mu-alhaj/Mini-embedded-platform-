@@ -10,6 +10,7 @@
  * Includes
  * */
 #include "systemRestart.h"
+#include "eeprom.h"
 #include "flash.h"
 /*
  * Private defines.
@@ -44,14 +45,13 @@ typedef struct
  * ********************************************/
 void systemRestart_setFlag( uint32_t flag )
 {
-	uint32_t set_flag = (uint32_t) flag;
-	flash_erasePage( (uint32_t) APP_BOOT_FLAG_ADD, 1);
-	flash_write( (uint32_t)APP_BOOT_FLAG_ADD, (uint8_t*)&set_flag, 4 );
+	eeprom_setSystemRestartFlag(flag);
+	eeprom_store();
 }
 
 void systemRestart_getFlag( uint32_t* flag )
 {
-	flash_read( APP_BOOT_FLAG_ADD, (uint8_t*)flag, 4 );
+	eeprom_getSystemRestartFlag( flag );
 	if( *flag == GO_APP )
 	{
 		// for demonstration:
