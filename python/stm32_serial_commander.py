@@ -207,7 +207,6 @@ def update_app():
 
     if ( not fwUpgrade_program_app_start( size, crc_checksum ) ):
         return False
-    input()
 
     # erase application flash area
     if ( not fwUpgrade_erase_app() ) : 

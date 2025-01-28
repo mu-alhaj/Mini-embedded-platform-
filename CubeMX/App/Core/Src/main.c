@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "scheduler.h"
+#include "led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,43 +56,11 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-void JumpToBoot(void)
-{
-    uint32_t boot_start_address = 0x08000000;  // Start address of your application
-    uint32_t jump_address = *(volatile uint32_t*)(boot_start_address + 4);  // Reset vector
-    uint32_t jump_stack = *(volatile uint32_t*)boot_start_address;  // Stack pointer
-
-    // Set the stack pointer to the application's stack pointer
-    __set_MSP(jump_stack);
-
-	// Set the vector table base address to the application address
-	SCB->VTOR = boot_start_address;
-
-    // Jump to the application's reset handler (the reset vector)
-    void (*app_reset_handler)(void) = (void (*)(void))jump_address;
-    app_reset_handler();  // Call the application
-}
-
-uint8_t toggle 	= 1;
-uint32_t stamp 	= 0;
-uint8_t size 	= 10;
-uint32_t delay_arr[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
-uint32_t delay = 500;
-uint8_t i = 0;
-
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if ( GPIO_Pin == B1_Pin )
 	{
-		if ( HAL_GetTick() - stamp > 1000 )
-		{
-			stamp = HAL_GetTick();
-			//toggle = toggle? 0:1;
-			delay = delay_arr[i];
-			i = ( i + 1 ) % size;
-		}
+		// do something.
 	}
 }
 /* USER CODE END 0 */
@@ -128,20 +97,16 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  // Enable global interrupts
-  __enable_irq();
+  scheduler_init();
+  scheduler_addTask( 50, led_run );
+  scheduler_run();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if ( toggle )
-	  {
-		  HAL_GPIO_TogglePin( LD2_GPIO_Port, LD2_Pin );
-		  HAL_Delay(delay);
-	  }
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

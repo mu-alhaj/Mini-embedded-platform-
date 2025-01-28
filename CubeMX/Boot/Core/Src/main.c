@@ -112,7 +112,7 @@ int main(void)
 	if( flag == GO_APP )
 	{
 		// verify application before jump
-		if( fwUpgrade_verifyApp()  )
+		if( 0 == fwUpgrade_verifyApp()  )
 		{
 			// jump.
 			systemRestart_jumpToApp();
@@ -151,7 +151,7 @@ int main(void)
   flash_init();
 
   scheduler_init();
-  scheduler_addTask( 50, led_run );
+  scheduler_addTask( 1000, led_run );
   scheduler_run();
 
   /* USER CODE END 2 */

@@ -13,6 +13,7 @@
 #include "serial.h"
 #include "scheduler.h"
 #include "crc.h"
+#include "led.h"
 /*
  * Private defines.
  * */
@@ -131,6 +132,8 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 			// copy in data to data buffer.
 			cmdqueue_push( serialVars.cmdq, serialVars.pRxBuff );
 			scheduler_pushTask( serialVars.pCmdHandlerCB );
+			// toggle led to indicate receiving data
+			scheduler_pushTask( led_run );
 		}
 		else
 		{
