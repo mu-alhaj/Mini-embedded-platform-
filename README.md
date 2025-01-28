@@ -8,7 +8,7 @@ https://github.com/user-attachments/assets/d1ce435c-9aaf-48dc-96f6-a0d4c5c72878
 
 #### Description of the project:
 The boot will be able to receive commands via the serial uart and parse it into command, which will be redirected to a respective module to be executed. Each command have a unique ID reffering to a specific function. In order for the commands to work, they should be added in the sw of the stm32 and to the python script. In the command set there is command responsible for erasing flash memory and repogramming it to write new application (perfor an update over the uart). The boot should be able to verify the application software and jumb to the application when push the blue push button.
-## content of the repo
+## Content of the repo
 The repo contains two parts, one on the PC side represented by a python script to communicate with the microcontroller and the other part is the software of the stm32 ( boot / app )
 ### CubeMx - Stm32
 #### Shared sources
@@ -28,5 +28,5 @@ a command should look like this:
 - systemRestart: this module is responsible for performing the jump to application when needed, the jump function updates the stack pointer and the reset handler to be able to jump to application. The system restart owns as well the boot flag that is saved into the eeprom when the used asks for application jump and perform a system restart. The first thing is done after restart is checking for that flag if set and jump to the boot before initializing the boot peripherals.
 #### Applicatoin
 This project is not supposed to do much but toggling the green led each 50 ms, just to demonstrate that interrupts still working after the jump to application.
-### python
+### Python
 The python script is used to send commands to the stm32 ( Boot ). A command class is defined to mirror the commnads defined in stm32 code, the class also has a pack() method to convert a class instent into byte array to be sent via the uart. One python function is added for each command to load the command with id and data and lastly call the uart_send_cmd, where a check sum is calculated and appended to the data sent. When the stm32 receives the data, it will verify the crc and sent an ACK for the uart_send_cmd to receive before returning ture or false. The script includes also some functions to parse intel hex file and extract the data from it. there is other functions also for updating the program by erasing the memory and sending the new program to be written to flash be the fwUpgrade module on the stm32.
