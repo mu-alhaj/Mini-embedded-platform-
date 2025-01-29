@@ -1,7 +1,7 @@
 # MicroRepo
 This repo includes a simple embedded platform running on an STM32F3 but it can be easily ported to other microcontrollers.
 #### Demonstration: 
-In the video below you can see the python script running a fwUpgrade. In the upper right corner you can see the stm32 board, the software on the board is the boot, you can see the green led toggeled each 1 second. When running the script, the led will be toggled on each uart data receive. After the fw is updated successfully, the used pushes the blue button to jump to applicaton and the green led will be toggled each 50 ms, pressing the black button will reset the board and bring us back to the boot.
+In the video below you can see the python script running a fwUpgrade. In the upper right corner you can see the stm32 board, the software on the board is the boot, you can see the green led toggeled each 1 second. When running the script, the led will be toggled on each uart data receive. After the fw is updated successfully, the blue push button is used to jump to applicaton where the green led will be toggled each 50 ms, pressing the black button will reset the board and bring us back to the boot.
 Ps: there is no audio in the video.
 
 https://github.com/user-attachments/assets/d1ce435c-9aaf-48dc-96f6-a0d4c5c72878
